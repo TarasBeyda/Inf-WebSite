@@ -1,0 +1,1 @@
+angular.module('InfWebSite', ['ngRoute', 'Controllers', 'Factory'])

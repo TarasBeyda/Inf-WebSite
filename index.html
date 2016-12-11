@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="InfWebSite">
+
+<head>
+   
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    
+</head>
+
+<body>
+    
+    <div ng-controller="mainPageCtrl as main">
+        <ng-view></ng-view>
+    </div>
+    
+    <script src="src/js/jquery-3.1.1.min.js"></script>
+    <script src="src/js/angular.min.js"></script>
+    <script src="src/js/angular-route.min.js"></script>
+    <script src="app/controllers/main.controller.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/config.js"></script>
+    <script src="app/app-services/factory.example.js"></script>
+    <script src="app/directives/main.directive.js"></script>
+    
+</body>
+
+</html>
