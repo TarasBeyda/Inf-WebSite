@@ -1,8 +1,8 @@
 angular.module('Controllers', [])
 
     .controller('mainPageCtrl', mainPageCtrl)
-    mainPage.$inject = ['Factory']
-    mainPage.$inject = ['$http']
+    mainPageCtrl.$inject = ['Factory']
+    mainPageCtrl.$inject = ['$http']
 
 function mainPageCtrl(Factory, $http) {
 
