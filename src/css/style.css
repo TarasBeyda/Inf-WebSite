@@ -9,6 +9,7 @@
 }
 body {
     background: #f5f5f5;
+    overflow: hidden;
 }
 h1 {
     color: #fff;
@@ -55,11 +56,52 @@ h3 {
 .navig__menu__left,
 .navig__menu__right {
     display: none;
+}
+
+
+/*Small navigation menu*/
+.small__menu {
+    position: relative;
+    text-align: center;
+}
+.small__menu > i {
+    border-radius: 25%;
     color: #fff;
+}
+.small__menu > i:first-child {
+    background: #464283;
+    float: left;
+    padding: 8px 13px 8px 50px;
+    margin: 10px 0 0 -40px;
+}
+.small__menu > i:nth-child(2) {
+    background: #166582;
+    float: right;
+    padding: 8px 50px 8px 13px;
+    margin: 10px -40px 0 0;
+}
+.small__menu a {
+    color: #000;
+    text-decoration: none; 
+}
+.small__menu__left,
+.small__menu__right {
+    position: absolute;
+}
+.small__menu__left {
+    left: 0;
+}
+.small__menu__right {
+    right: 0;
 }
 
 
 /*Wrapper*/
+.wrapper {
+    margin-top: 100px;
+}
+
+
 /*Latest posts*/
 .posts {
     border: 2px solid #dcdcdc;
