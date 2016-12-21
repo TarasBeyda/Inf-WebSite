@@ -192,10 +192,11 @@ h3 {
     margin: 10px 0 10px;
 }
 
+
 /*Categories*/  
 .categories {
     margin: 50px 0;
-    background: url(../img/bgTopMenu.png) no-repeat 50% 50%;  
+    background: url(../img/bgBox.png) no-repeat 50% 50%;
     background-size: cover;
     position: relative;
     z-index: -2;
@@ -215,6 +216,7 @@ h3 {
     float: right;
     margin: -40px 20px 0 0;
 }
+
 
 /*Popular New Most commented*/
 .bound {
@@ -239,6 +241,33 @@ h3 {
     font-style: italic;
 }
 
+
+/*Subscribe*/
+.subscribe {
+    margin: 50px 0;
+    background: url(../img/bgBox.png) no-repeat 50% 50%;
+    background-size: cover;
+    text-align: center;
+}
+.subscribe p {
+    color: #fff;
+    font: bold 16px "OpenSans", sans-serif;
+    text-align: center;
+}
+.subscribe input[type="text"] {
+    border: 0px solid #000;
+    border-radius: 12px;
+    padding: 7px 0 7px 7px;
+    font-style: italic;
+}
+.subscribe input[type="button"] {
+    background: #308aa9;
+    color: #fff;
+    font: bold 12px "OpenSans", sans-serif;
+    border: 0px solid #000;
+    border-radius: 12px;
+    padding: 7px;
+}
 
 
 
