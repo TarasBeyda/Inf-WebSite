@@ -66,40 +66,42 @@ h3 {
     position: relative;
     overflow: hidden;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
 }
 .small__menu > i {
     border-radius: 25%;
     color: #fff;
+    height: 32px;
 }
 .small__menu > i:first-child {
     background: #464283;
-    float: left;
     padding: 8px 13px 8px 50px;
     margin: 10px 0 0 -40px;
 }
-.small__menu > i:nth-child(2) {
+.small__menu > i:nth-child(4) {
     background: #166582;
-    float: right;
     padding: 8px 50px 8px 13px;
     margin: 10px -40px 0 0;
 }
 .small__menu > i:hover {
     cursor: pointer;
 }
+.small__menu li {
+    padding: 10px 0;
+}
 .small__menu a {
     color: #000;
-    text-decoration: none; 
+    font-size: 16px;
+    text-decoration: none;
+    padding: 0 7px 2px;
+    border-bottom: 1px solid #cfcfcf;
 }
 .small__menu__left,
-.small__menu__right {
-    position: absolute;
+.small__menu__right
+{
+    margin-top: 60px;
     display: none;
-}
-.small__menu__left {
-    left: 0;
-}
-.small__menu__right {
-    right: 0;
 }
 
 
@@ -201,6 +203,9 @@ h3 {
     position: relative;
     z-index: -2;
 }
+.categ__box:last-child {
+    padding-bottom: 25px;
+}
 .categ__box {
     margin: 10px 0;
 }
@@ -219,6 +224,14 @@ h3 {
 
 
 /*Popular New Most commented*/
+.popularNews__posts {
+    text-align: center;
+}
+.popular__posts,
+.new__articles,
+.most__commented {
+    margin: 50px 0;
+}
 .bound {
     border: 1px solid #cfcfcf;
     margin: 12px 0 17px;
@@ -253,6 +266,8 @@ h3 {
     color: #fff;
     font: bold 16px "OpenSans", sans-serif;
     text-align: center;
+    padding-top: 15px;
+    margin: 0 0 10px;
 }
 .subscribe input[type="text"] {
     border: 0px solid #000;
@@ -267,6 +282,25 @@ h3 {
     border: 0px solid #000;
     border-radius: 12px;
     padding: 7px;
+    margin: 10px 0 15px;
+}
+
+
+/*Footer*/
+.footer {
+    text-align: center;
+    color: #777;
+}
+.footer p:first-child {
+    font-family: "Intro";
+    font-size: 28px;
+}
+.footer > .demarcation h3 {
+    margin: 0 0 -16px;
+}
+.footer > .demarcation i {
+    color: #cfcfcf;
+    vertical-align: -5px;
 }
 
 
