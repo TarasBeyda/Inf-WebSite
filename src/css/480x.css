@@ -1,5 +1,11 @@
 @media screen and (min-width: 480px) {
     
+    /*Slider*/
+    .slider {
+        display: block;
+    }
+    
+    
     /*Latest posts*/
     .latest__posts {
         display: flex;
