@@ -1,0 +1,30 @@
+@media screen and (min-width: 992px) {
+    
+    /*Latest posts*/
+    .posts {
+        width: 280px;
+    }
+
+
+    /*Categories*/
+    .categ__box {
+        width: 280px;
+    }
+
+
+    /*Popular New Most commented*/
+    .popularNews__posts {
+        text-align: left;
+    }
+    .popular__posts,
+    .new__articles,
+    .most__commented {
+        width: 280px;
+    }
+    .popular__box,
+    .new__box,
+    .mostComment__box {
+        width: 280px;
+    }
+    
+}

@@ -137,7 +137,8 @@ h3 {
 .posts {
     border: 2px solid #dcdcdc;
     border-radius: 12px;
-    margin: 10px 0;
+    margin: 10px auto;
+    width: 270px;
 }
 .posts > img {
     width: 100%;
@@ -207,7 +208,8 @@ h3 {
     padding-bottom: 25px;
 }
 .categ__box {
-    margin: 10px 0;
+    margin: 10px auto;
+    width: 270px;
 }
 .categ__box img {
     position: relative;
@@ -230,7 +232,7 @@ h3 {
 .popular__posts,
 .new__articles,
 .most__commented {
-    margin: 50px 0;
+    margin: 50px auto;
 }
 .bound {
     border: 1px solid #cfcfcf;
@@ -239,7 +241,8 @@ h3 {
 .popular__box,
 .new__box,
 .mostComment__box {
-    margin: 0 0 30px;
+    margin: 0 auto 30px;
+    width: 270px;
 }
 .popular__box p,
 .new__box p,

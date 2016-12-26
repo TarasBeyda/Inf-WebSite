@@ -1,0 +1,27 @@
+@media screen and (min-width: 1200px) {
+    
+    /*Latest posts*/
+    .posts {
+        width: 270px;
+    }
+
+
+    /*Categories*/
+    .categ__box {
+        width: 270px;
+    }
+
+
+    /*Popular New Most commented*/
+    .popular__posts,
+    .new__articles,
+    .most__commented {
+        width: 335px;
+    }
+    .popular__box,
+    .new__box,
+    .mostComment__box {
+        width: 335px;
+    }
+    
+}

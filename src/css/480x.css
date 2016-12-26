@@ -1,0 +1,48 @@
+@media screen and (min-width: 480px) {
+    
+    /*Latest posts*/
+    .latest__posts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .posts {
+        width: 220px;
+    }
+    
+    
+    /*Categories*/
+    .categ__main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .categ__box {
+        width: 220px;
+    }
+    
+    
+    /*Popular New Most commented*/
+    .popularNews__posts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .popular__posts,
+    .new__articles,
+    .most__commented {
+        width: 220px;
+    }
+    .popular__box,
+    .new__box,
+    .mostComment__box {
+        width: 220px;
+    }
+    
+    
+    /*Subscribe*/
+    .subscribe {
+        width: 100%;
+    }
+    
+}
