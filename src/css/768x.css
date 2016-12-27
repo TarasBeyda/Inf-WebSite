@@ -1,5 +1,32 @@
 @media screen and (min-width: 768px) {
     
+    /*Slider*/
+    .slider_box {
+        width: 700px;
+    }
+    .slider_box > nav > section {
+        width: 500px;
+        margin: 0 100px;
+        height: 230px;
+    }
+    .slider_box img {
+        width: 250px;
+        height: 230px;
+    }
+    .slider_box article {
+        margin: 20px 10px;
+    }
+    .slider_box article > p {
+        margin: 15px 0;
+    }
+    
+    
+    /*Wrapper*/
+    .wrapper {
+        max-width: 991px;
+    }
+    
+    
     /*Latest posts*/
     .posts {
         width: 225px;

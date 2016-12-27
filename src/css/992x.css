@@ -1,5 +1,29 @@
 @media screen and (min-width: 992px) {
     
+    /*Slider*/
+    .slider_box {
+        width: 900px;
+    }
+    .slider_box > nav > section {
+        width: 700px;
+        margin: 0 100px;
+    }
+    .slider_box img {
+        width: 300px;
+    }
+    .slider_box article {
+        margin: 40px 25px;
+    }
+    .slider_box article > p {
+        margin: 25px 0;
+    }
+    
+    /*Wrapper*/
+    .wrapper {
+        max-width: 10000px;
+    }
+    
+    
     /*Latest posts*/
     .posts {
         width: 280px;
