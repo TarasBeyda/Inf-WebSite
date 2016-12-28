@@ -1,5 +1,18 @@
 @media screen and (min-width: 992px) {
     
+    /*Main menu*/
+    .navig__menu__left,
+    .navig__menu__right {
+        display: block;
+    }
+    
+    
+    /*Small navigation menu*/
+    .small__menu {
+        display: none;
+    }
+    
+    
     /*Slider*/
     .slider_box {
         width: 900px;

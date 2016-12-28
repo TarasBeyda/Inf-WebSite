@@ -78,10 +78,12 @@ h3 {
     margin: 25px 0;
 }
 .slider_box article > button {
-    color: #2d8cd3;
     border: 2px solid #2d8cd3;
     text-align: center;
     font: 12px "OpenSans", sans-serif;
+}
+.slider_box button a {
+    color: #2d8cd3;
 }
 .slider_box a {
     padding: 12px 18px;
@@ -138,7 +140,7 @@ h3 {
 }
 
 
-/*Nav menu*/
+/*Main menu*/
 .navig__menu__left,
 .navig__menu__right {
     display: none;
@@ -147,45 +149,33 @@ h3 {
 
 /*Small navigation menu*/
 .small__menu {
-    position: relative;
-    overflow: hidden;
+    border-bottom: 5px double #cfcfcf;
+    margin: 10px 0;
+    height: 40px;
     text-align: center;
-    display: flex;
-    justify-content: space-between;
+    overflow: hidden;
 }
-.small__menu > i {
-    border-radius: 25%;
-    color: #fff;
-    height: 32px;
+.small__menu i {
+    width: 100%;
 }
-.small__menu > i:first-child {
-    background: #464283;
-    padding: 8px 13px 8px 50px;
-    margin: 10px 0 0 -40px;
+#smallMenuBtn {
+    margin: 0 0 5px 0;
 }
-.small__menu > i:nth-child(4) {
-    background: #166582;
-    padding: 8px 50px 8px 13px;
-    margin: 10px -40px 0 0;
+#smallMenuBtnBottom {
+    margin: 5px 0 0 0;
 }
-.small__menu > i:hover {
+#smallMenuBtn:hover,
+#smallMenuBtnBottom:hover {
     cursor: pointer;
 }
-.small__menu li {
-    padding: 10px 0;
+.small__menu__nav {
+    margin: 5px 0 0 0;
 }
-.small__menu a {
-    color: #000;
-    font-size: 16px;
-    text-decoration: none;
-    padding: 0 7px 2px;
-    border-bottom: 1px solid #cfcfcf;
+.small__menu__nav a {
+    font: 16px "OpenSans", sans-serif;
 }
-.small__menu__left,
-.small__menu__right
-{
-    margin-top: 60px;
-    display: none;
+.small__menu__nav li {
+    padding: 5px 0;
 }
 
 
