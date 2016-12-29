@@ -4,7 +4,27 @@
     .navig__menu__left,
     .navig__menu__right {
         display: block;
+        position: absolute;
     }
+    .navig__menu__left ul,
+    .navig__menu__right ul {
+        display: flex;
+        justify-content: space-around;
+        width: 400px;
+    }
+    .navig__menu__left {
+        left: 0px;
+        top: 33px;
+    }
+    .navig__menu__right {
+        right: 0px;
+        top: 33px;
+    }
+    .navig__menu__left a,
+    .navig__menu__right a {
+        color: #FFF;
+    }
+    
     
     
     /*Small navigation menu*/

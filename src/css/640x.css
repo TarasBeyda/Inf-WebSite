@@ -21,6 +21,9 @@
     .slider {
         display: block;
     }
+    .nav_slider {
+        top: -125px;
+    }
     .slider_box {
         width: 600px;
     }

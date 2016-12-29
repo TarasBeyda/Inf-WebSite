@@ -1,5 +1,12 @@
 @media screen and (min-width: 1365px) {
     
+    /*Main menu*/
+    .navig__menu__left ul,
+    .navig__menu__right ul {
+        width: 450px;
+    }
+    
+    
     /*Latest posts*/
     .posts {
         width: 300px;
