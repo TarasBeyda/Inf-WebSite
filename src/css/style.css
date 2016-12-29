@@ -195,15 +195,17 @@ h3 {
     padding: 35px 0 0;
 }
 .demarcation h3 {
-    margin: 0 0 -8px;
+    margin: 0 0 -22px;
 }
 .demarcation h3 a {
     color: #000;
     border: 1px solid #cfcfcf;
     border-radius: 40px;
-    padding: 15px 70px;
-    margin: 10px 0 10px;
     background: #f5f5f5;
+    display: block;
+    width: 150px;
+    padding: 15px 0;
+    margin: auto;
 }
 
 
@@ -304,7 +306,6 @@ h3 {
     text-align: center;
 }
 .popular__posts,
-.new__articles,
 .most__commented {
     margin: 50px auto;
 }
@@ -313,13 +314,11 @@ h3 {
     margin: 12px 0 17px;
 }
 .popular__box,
-.new__box,
 .mostComment__box {
     margin: 0 auto 30px;
     width: 270px;
 }
 .popular__box p,
-.new__box p,
 .mostComment__box p {
     line-height: 20px;
     color: #000;
@@ -375,6 +374,9 @@ h3 {
 .footer > .demarcation h3 {
     margin: 0 0 -16px;
 }
+.footer > .demarcation a {
+    padding: 0;
+}
 .footer > .demarcation i {
     color: #cfcfcf;
     vertical-align: -5px;
@@ -382,6 +384,10 @@ h3 {
 
 
 /*Admin panel*/
+/*Admin head*/
+.admin__head {
+    display: none;
+}
 .admin__block {
     border: 2px solid #cfcfcf;
     border-radius: 25px;
@@ -391,11 +397,53 @@ h3 {
     overflow: hidden;
     height: 30px;
 }
-.admin__block:hover {
+.admin__block h2:hover {
     cursor: pointer;
 }
 .admin__block h2 {
-    margin: 5px 0;
+    padding: 5px 0;
+}
+
+
+/*Admin wrapper*/
+.admin__wrapper {
+    display: none;
+}
+
+
+/*Admin sign in*/
+.admin__signIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow: auto;
+    background: rgba(0,0,0,0.3);
+}
+.controll__signIn {
+    position: relative;
+    border: 3px solid #cfcfcf;
+    border-radius: 25px;
+    background: url(../img/bgTopMenu.png) no-repeat 50% 50%;
+    background-size: cover;
+    color: #FFF;
+    width: 320px;
+    height: 130px;
+}
+.controll__signIn p {
+    margin: 10px 0 10px 25px; 
+}
+.controll__signIn input {
+    margin: 0 0 0 25px;
+}
+.controll__signIn button {
+    position: absolute;
+    right: 30px;
+    top: 38px;
 }
 
 

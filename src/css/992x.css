@@ -60,12 +60,14 @@
     /*Latest posts*/
     .posts {
         width: 280px;
+        margin: 20px 30px;
     }
 
 
     /*Categories*/
     .categ__box {
         width: 280px;
+        margin: 20px 30px;
     }
 
 
@@ -74,12 +76,10 @@
         text-align: left;
     }
     .popular__posts,
-    .new__articles,
     .most__commented {
         width: 280px;
     }
     .popular__box,
-    .new__box,
     .mostComment__box {
         width: 280px;
     }

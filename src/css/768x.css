@@ -29,26 +29,24 @@
     
     /*Latest posts*/
     .posts {
-        width: 225px;
+        width: 280px;
     }
     
     
     /*Categories*/
     .categ__box {
-        width: 225px;
+        width: 280px;
     }
 
 
     /*Popular New Most commented*/
     .popular__posts,
-    .new__articles,
     .most__commented {
-        width: 225px;
+        width: 280px;
     }
     .popular__box,
-    .new__box,
     .mostComment__box {
-        width: 225px;
+        width: 280px;
     }
     
 }

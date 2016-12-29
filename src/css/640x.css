@@ -65,12 +65,10 @@
     
     /*Popular New Most commented*/
     .popular__posts,
-    .new__articles,
     .most__commented {
         width: 270px;
     }
     .popular__box,
-    .new__box,
     .mostComment__box {
         width: 270px;
     }

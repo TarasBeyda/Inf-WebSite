@@ -14,14 +14,12 @@
 
     /*Popular New Most commented*/
     .popular__posts,
-    .new__articles,
     .most__commented {
-        width: 335px;
+        width: 300px;
     }
     .popular__box,
-    .new__box,
     .mostComment__box {
-        width: 335px;
+        width: 300px;
     }
     
 }
