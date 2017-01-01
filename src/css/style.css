@@ -215,6 +215,7 @@ h3 {
     border-radius: 12px;
     margin: 10px auto;
     width: 270px;
+    background: #FFF;
 }
 .posts > img {
     width: 100%;
@@ -269,6 +270,56 @@ h3 {
 .posts__btnRight img {
     width: 20px;
     margin: 10px 0 10px;
+}
+
+
+/*Only post*/
+.post {
+    position: relative;
+    width: 280px;
+    margin: auto;
+    background: #FFF;
+}
+.post > a {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    padding: 7px;
+    color: #FFF;
+    background: #1c8ee3;
+    border: 0px solid #000;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+.post img {
+    width: 266px;
+}
+.post > time {
+    display: block;
+    padding: 50px 7px 0 7px;
+}
+.post > h3 {
+    margin: 20px 7px 20px 7px;
+}
+.post__content {
+    margin: 0px 7px 0 7px;
+    padding: 20px 0 0 0;
+    border-top: 2px solid #cfcfcf;
+    line-height: 20px;
+}
+.post__content > p {
+    margin-bottom: 10px;
+    color: #333;
+}
+.post > .hashtag {
+    color: rgba(0,0,0,0.3);
+    margin: 0 7px;
+}
+.post > .hashtag > span {
+    margin-right: 5px;
+}
+.post__comments {
+    border-top: 2px solid #cfcfcf;
 }
 
 

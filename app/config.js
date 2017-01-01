@@ -6,12 +6,17 @@ angular.module('InfWebSite')
         .when('/', {
             controller: 'mainPageCtrl',
             templateUrl: 'app/templates/mainPage.html',
-            title: 'JOURNAL'
+            title: 'ІНФОТЕХ'
         })
         .when('/admin_panel', {
             controller: 'mainPageCtrl',
             templateUrl: 'app/templates/adminPanel.html',
-            title: 'Admin panel'
+            title: 'Панель редагування'
+        })
+        .when('/post', {
+            controller: 'mainPageCtrl',
+            templateUrl: 'app/templates/post.html',
+            title: 'ІНФОТЕХ стаття'
         })
         .otherwise({
             template: '<h1 style="text-align: center">404</h1>'
