@@ -297,6 +297,7 @@ h3 {
 .post > time {
     display: block;
     padding: 50px 7px 0 7px;
+    color: rgba(0,0,0,0.3);
 }
 .post > h3 {
     margin: 20px 7px 20px 7px;
@@ -305,7 +306,7 @@ h3 {
     margin: 0px 7px 0 7px;
     padding: 20px 0 0 0;
     border-top: 2px solid #cfcfcf;
-    line-height: 20px;
+    line-height: 22px;
 }
 .post__content > p {
     margin-bottom: 10px;
@@ -319,7 +320,44 @@ h3 {
     margin-right: 5px;
 }
 .post__comments {
+    margin: 30px 0;
+}
+.post__comments textarea {
+    width: 275px;
+}
+.post__comments button {
+    float: right;
+    margin: 7px 7px 20px 0;
+    padding: 5px;
+}
+.amount__comments {
+    display: block;
+    background: url(/src/img/bgTopMenu.png) no-repeat 50% 50%;
+    background-size: cover;
+    padding: 10px 0 10px 7px;
+    color: #FFF;
+}
+.comments {
     border-top: 2px solid #cfcfcf;
+    margin: 48px 7px 0 7px;
+    color: #333;
+}
+.comments i {
+    margin-right: 7px;
+}
+.comments div {
+    margin: 7px 7px 14px 7px;
+    padding-bottom: 26px;
+    line-height: 20px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+}
+.comments > div > .date {
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    color: rgba(0,0,0,0.3);
 }
 
 
