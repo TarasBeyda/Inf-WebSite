@@ -33,6 +33,40 @@
     }
     
     
+    /*Only post*/
+    .post,
+    .post__comments {
+        width: 738px;
+    }
+    .post img {
+        width: 475px;
+    }
+    .post__comments textarea {
+        width: 732px;
+    }
+    .post > time {
+        padding: 50px 50px 0 50px;
+    }
+    .post > h3 {
+        margin: 20px 50px 20px 50px;
+    }
+    .post__content {
+        margin: 0px 50px 0 50px;
+    }
+    .post__comments button {
+        margin: 7px 50px 20px 0;
+    }
+    .comments {
+        margin: 48px 50px 0 50px;
+    }
+    .comments div {
+        margin: 7px 50px 14px 50px;
+    }
+    .post > .hashtag {
+        margin: 0 50px;
+    }
+    
+    
     /*Categories*/
     .categ__box {
         width: 280px;

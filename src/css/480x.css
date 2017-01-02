@@ -18,6 +18,19 @@
     }
     
     
+    /*Only post*/
+    .post,
+    .post__comments {
+        width: 450px;
+    }
+    .post img {
+        width: 436px;
+    }
+    .post__comments textarea {
+        width: 444px;
+    }
+    
+    
     /*Categories*/
     .categ__main {
         display: flex;
