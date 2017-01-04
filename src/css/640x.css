@@ -65,7 +65,7 @@
     .post img {
         width: 355px;
         float: left;
-        margin-right: 7px;
+        margin-right: 12px;
     }
     .post__comments textarea {
         width: 604px;
@@ -78,9 +78,6 @@
     }
     .post__content {
         margin: 0px 30px 0 30px;
-    }
-    .post__comments button {
-        margin: 7px 30px 20px 0;
     }
     .comments {
         margin: 48px 30px 0 30px;

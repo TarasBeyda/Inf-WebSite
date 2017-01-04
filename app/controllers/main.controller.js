@@ -100,4 +100,6 @@ function mainPageCtrl(mainPageFact, $http) {
         this.slider(700,100,100,1);
     };
     
+    
+    
 }

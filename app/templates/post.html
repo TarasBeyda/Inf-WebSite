@@ -1,10 +1,45 @@
 <header class="head">
 
     <div class="top">
+        <nav class="navig__menu__left">
+            <ul class="fonts_content">
+                <li><a href="#!/admin_panel">Меню 1</a></li>
+                <li><a href="#!/post">Меню 2</a></li>
+                <li><a href="#">Меню 3</a></li>
+                <li><a href="#">Меню 4</a></li>
+            </ul>
+        </nav>
+
         <h1>IНФОТЕХ</h1>
+
+        <nav class="navig__menu__right">
+            <ul class="fonts_content">
+                <li><a href="#">Меню 5</a></li>
+                <li><a href="#">Мень 6</a></li>
+                <li><a href="#">Меню 7</a></li>
+                <li><a href="#">Меню 8</a></li>
+            </ul>
+        </nav>
     </div>
 
 </header>
+
+<div class="small__menu">
+
+    <i class="fa fa-arrow-down fa-2x" aria-hidden="true" id="smallMenuBtn" ng-click="main.showSmallMenu();"></i>
+
+    <nav class="small__menu__nav">
+        <ul>
+            <li><a href="#">Меню 1</a></li>
+            <li><a href="#">Меню 2</a></li>
+            <li><a href="#">Меню 3</a></li>
+            <li><a href="#">Меню 4</a></li>
+        </ul>
+    </nav>
+
+    <i class="fa fa-arrow-up fa-2x" aria-hidden="true" id="smallMenuBtnBottom" ng-click="main.hideSmallMenu();"></i>
+
+</div>
 
 <div class="wrapper">
     

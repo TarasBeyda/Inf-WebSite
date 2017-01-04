@@ -18,6 +18,11 @@ angular.module('InfWebSite')
             templateUrl: 'app/templates/post.html',
             title: 'ІНФОТЕХ стаття'
         })
+        .when('/contact', {
+            controller: 'mainPageCtrl',
+            templateUrl: 'app/templates/contact.html',
+            title: 'ІНФОТЕХ контакти'
+        })
         .otherwise({
             template: '<h1 style="text-align: center">404</h1>'
         })
