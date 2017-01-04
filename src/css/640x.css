@@ -90,6 +90,22 @@
     }
     
     
+    /*Сontact page*/
+    .contact {
+        width: 610px;
+    }
+    .contact__info {
+        margin: 0 45px;
+    }
+    .contact__form {
+        margin: 0 45px;
+    }
+    .contact__form > input,
+    .contact__form > textarea {
+        width: 470px;
+    }
+    
+    
     /*Categories*/
     .categ__box {
         width: 270px;

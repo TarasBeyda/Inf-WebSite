@@ -65,6 +65,20 @@
     }
     
     
+    /*Сontact page*/
+    .contact {
+        width: 738px;
+    }
+    .contact__info,
+    .contact__form {
+        margin: 0 50px;
+    }
+    .contact__form > input,
+    .contact__form > textarea {
+        width: 588px;
+    }
+    
+    
     /*Categories*/
     .categ__box {
         width: 280px;

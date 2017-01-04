@@ -93,6 +93,29 @@
     .post > .hashtag {
         margin: 0 80px;
     }
+    
+    
+    /*Сontact page*/
+    .contact {
+        width: 950px;
+    }
+    .contact__info {
+        margin: 0 90px;
+        padding: 70px 0 40px 0;
+    }
+    .contact__info h2 {
+        margin-bottom: 50px;
+    }
+    .contact__form {
+        margin: 0 90px;
+        padding: 40px 0 70px 0;
+    }
+    .contact__form > input,
+    .contact__form > textarea {
+        padding: 20px 30px 20px 30px;
+        width: 710px;
+        margin-bottom: 30px;
+    }
 
 
     /*Categories*/

@@ -31,6 +31,29 @@
     }
     
     
+    /*Сontact page*/
+    .contact {
+        width: 450px;
+    }
+    .contact__info {
+        margin: 0 35px;
+        padding: 50px 0 40px 0;
+    }
+    .contact__info h2 {
+        margin-bottom: 30px;
+    }
+    .contact__form {
+        margin: 0 35px;
+        padding: 40px 0 50px 0;
+    }
+    .contact__form > input,
+    .contact__form > textarea {
+        padding: 15px 25px 15px 25px;
+        width: 330px;
+        margin-bottom: 20px;
+    }
+    
+    
     /*Categories*/
     .categ__main {
         display: flex;
