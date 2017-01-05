@@ -106,88 +106,13 @@
     </div>
     
     <div class="latest__posts">
-       
-        <section class="posts clearfix">
+      
+        <section class="posts clearfix" ng-repeat="key in main.posts.data">
             <img src="/src/img/imagePost1.png" alt="Image post">
             <a href="#">Категорія 1</a>
             <article class="posts__content">
-                <h3>Заголовок до певної новини 1</h3>
-                <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui distinctio suscipit, alias laborum at officiis repellat. Nobis velit reprehenderit assumenda earum...</p>
-            </article>
-            <div class="posts__btnLeft">
-                <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
-            </div>
-            <div class="posts__btnLeft">
-                <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
-            </div>
-        </section>
-        
-        <section class="posts clearfix">
-            <img src="/src/img/imagePost2.png" alt="Image post">
-            <a href="#">Категорія 2</a>
-            <article class="posts__content">
-                <h3>Заголовок до певної новини 2</h3>
-                <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda facilis nisi qui, accusantium ullam ipsa expedita sed. Molestiae, iste debitis sunt quis quaerat...</p>
-            </article>
-            <div class="posts__btnLeft">
-                <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
-            </div>
-            <div class="posts__btnLeft">
-                <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
-            </div>
-        </section>
-        
-        <section class="posts clearfix">
-            <img src="/src/img/imagePost3.png" alt="Image post">
-            <a href="#">Категорія 3</a>
-            <article class="posts__content">
-                <h3>Заголовок до певної новини 3</h3>
-                <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti repellat facere iste qui blanditiis doloremque, consequatur, error magnam possimus accusantium...</p>
-            </article>
-            <div class="posts__btnLeft">
-                <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
-            </div>
-            <div class="posts__btnLeft">
-                <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
-            </div>
-        </section>
-        
-        <section class="posts clearfix">
-            <img src="/src/img/imagePost2.png" alt="Image post">
-            <a href="#">Категорія 2</a>
-            <article class="posts__content">
-                <h3>Заголовок до певної новини 4</h3>
-                <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda facilis nisi qui, accusantium ullam ipsa expedita sed. Molestiae, iste debitis sunt quis quaerat...</p>
-            </article>
-            <div class="posts__btnLeft">
-                <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
-            </div>
-            <div class="posts__btnLeft">
-                <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
-            </div>
-        </section>
-        
-        <section class="posts clearfix">
-            <img src="/src/img/imagePost1.png" alt="Image post">
-            <a href="#">Категорія 1</a>
-            <article class="posts__content">
-                <h3>Заголовок до певної новини 1</h3>
-                <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui distinctio suscipit, alias laborum at officiis repellat. Nobis velit reprehenderit assumenda earum...</p>
-            </article>
-            <div class="posts__btnLeft">
-                <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
-            </div>
-            <div class="posts__btnLeft">
-                <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
-            </div>
-        </section>
-        
-        <section class="posts clearfix">
-            <img src="/src/img/imagePost1.png" alt="Image post">
-            <a href="#">Категорія 3</a>
-            <article class="posts__content">
-                <h3>Заголовок до певної новини 1</h3>
-                <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui distinctio suscipit, alias laborum at officiis repellat. Nobis velit reprehenderit assumenda earum...</p>
+                <h3>{{key.title_post}}</h3>
+                <p class="fonts_content">{{key.content_post}}</p>
             </article>
             <div class="posts__btnLeft">
                 <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>

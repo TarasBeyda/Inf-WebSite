@@ -11,8 +11,11 @@ function mainPageFact() {
         recommendMessage: ''
     };
     
+    var posts;
+    
     return { 
-        recommendMessageMe: recommendMessageMe
+        recommendMessageMe: recommendMessageMe,
+        posts: posts
     };
     
 };

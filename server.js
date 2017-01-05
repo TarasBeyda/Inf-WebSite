@@ -1,15 +1,24 @@
 var express = require('express');
 var cors = require('cors');
 var bodyParser = require('body-parser');
+var mysql = require('mysql');
 var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 
 var app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
 
-var smtpTransport = require('nodemailer-smtp-transport');
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '1857treytre',
+    database: 'InfWebSite'
+});
 
+
+/*recomendMessageMe*/
 var transport = nodemailer.createTransport(
     smtpTransport({
         service: 'gmail',
@@ -36,6 +45,16 @@ app.post('/sendRecommendMessageMe', (req, res) => {
     });
     res.send(200);
 });
+
+
+/*Repeat post in mainPage*/
+app.post('/postInMainPage', (req, res) => {
+    connection.query('select * from Posts', (err, posts) => {
+        if (err) throw err;
+        res.send(posts);
+    });
+});
+
 
 var server = app.listen(3000, (err) => {
     if (err) throw err;

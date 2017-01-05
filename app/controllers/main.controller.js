@@ -110,13 +110,26 @@ angular.module('Controllers', [])
             recommendMessage: this.recommendMessage
         };
         $http.post('http://localhost:3000/sendRecommendMessageMe', this.recommendMessageMe)
-            .success((res) => {
+            .then((res) => {
                 console.log('Success sendRecommendMessageMe', res);
-            })
-            .error((err) => {
+            }), function error(err) {
                 console.log('Error sendRecommendMessageMe', err);
-            })
+            }
     };
+        
+    
+    /*Repeat post in mainPage*/
+    this.posts = mainPageFact.posts;
+    this.postInMainPage = function() {
+        $http.post('http://localhost:3000/postInMainPage')
+            .then((res) => {
+                console.log('Success postInMainPage', res);
+                this.posts = res;
+            }), function error(err) {
+                console.log('Error postInMainPage', err);
+            }
+    };
+    this.postInMainPage();
    
     
 }
