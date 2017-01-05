@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 var smtpTransport = require('nodemailer-smtp-transport');
+
 var transport = nodemailer.createTransport(
     smtpTransport({
         service: 'gmail',
@@ -19,16 +20,21 @@ var transport = nodemailer.createTransport(
     })
 );
 
-var params = {
-    from: 'tarasbeyda@gmail.com', 
-    to: 'byratino50@gmail.com', 
-    subject: 'Hi, body!',
-    text: 'Let\'s read some articles on Web Creation'
-};
-transport.sendMail(params, function (err, res) {
-    if (err) {
-        console.error(err);
-    }
+app.post('/sendRecommendMessageMe', (req, res) => {
+    var recommendMessageMe = {
+        from: 'tarasbeyda@gmail.com', 
+        to: 'byratino50@gmail.com', 
+        subject: req.body.recommendSubject,
+        text: `Повідомлення від користувача: ${req.body.recommendName}
+        Його Email: ${req.body.recommendEmail}
+        ${req.body.recommendMessage}`
+    };
+    transport.sendMail(recommendMessageMe, function (err, res) {
+        if (err) {
+            console.error(err);
+        }
+    });
+    res.send(200);
 });
 
 var server = app.listen(3000, (err) => {

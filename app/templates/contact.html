@@ -53,11 +53,11 @@
         </div>
 
         <form action="#" class="contact__form">
-            <input type="text" placeholder="Ваше імя">
-            <input type="text" placeholder="Емайл">
-            <input type="text" placeholder="Тематика">
-            <textarea rows="4" placeholder="Ваше повідомлення"></textarea>
-            <button type="button">Надіслати <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            <input type="text" placeholder="Ваше імя" ng-model='main.recommendName'>
+            <input type="text" placeholder="Емайл" ng-model='main.recommendEmail'>
+            <input type="text" placeholder="Тематика" ng-model='main.recommendSubject'>
+            <textarea rows="4" placeholder="Ваше повідомлення" ng-model='main.recommendMessage'></textarea>
+            <button type="button" ng-click='main.sendRecommendMessageMe();'>Надіслати <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
         </form>
         
     </div>

@@ -4,6 +4,15 @@ angular.module('Factory', [])
 
 function mainPageFact() {
 
+    var recommendMessageMe = {
+        recommendName: '',
+        recommendEmail: '',
+        recommendSubject: '',
+        recommendMessage: ''
+    };
     
-
-}
+    return { 
+        recommendMessageMe: recommendMessageMe
+    };
+    
+};

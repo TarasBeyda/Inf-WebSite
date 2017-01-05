@@ -1,10 +1,9 @@
 angular.module('Controllers', [])
 
     .controller('mainPageCtrl', mainPageCtrl)
-    mainPageCtrl.$inject = ['mainPageFact']
-    mainPageCtrl.$inject = ['$http']
+    mainPageCtrl.$inject = ['mainPageFact', '$http']
 
-function mainPageCtrl(mainPageFact, $http) {
+    function mainPageCtrl(mainPageFact, $http) {
     
     /*Small menu*/
     this.showSmallMenu = function() {
@@ -83,7 +82,7 @@ function mainPageCtrl(mainPageFact, $http) {
         });
 //        setInterval(function(){
 //            if(-col_main_left==max_col_main_left-col_view_img*step) {
-//                col_main_left=0;
+//                col_main_left=0;  
 //                $(".slider_box>nav").css("margin-left",col_main_left+"px");
 //            } else {
 //                col_main_left=col_main_left-step;
@@ -101,5 +100,23 @@ function mainPageCtrl(mainPageFact, $http) {
     };
     
     
+    /*recomendMessageMe*/
+    this.recommendMessageMe = mainPageFact.recommendMessageMe;
+    this.sendRecommendMessageMe = function() {
+        this.recommendMessageMe = {
+            recommendName: this.recommendName,
+            recommendEmail: this.recommendEmail,
+            recommendSubject: this.recommendSubject,
+            recommendMessage: this.recommendMessage
+        };
+        $http.post('http://localhost:3000/sendRecommendMessageMe', this.recommendMessageMe)
+            .success((res) => {
+                console.log('Success sendRecommendMessageMe', res);
+            })
+            .error((err) => {
+                console.log('Error sendRecommendMessageMe', err);
+            })
+    };
+   
     
 }
