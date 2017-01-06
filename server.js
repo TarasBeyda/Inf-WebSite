@@ -56,6 +56,15 @@ app.post('/postInMainPage', (req, res) => {
 });
 
 
+/*Repeat post in slider*/
+app.post('/postInSlider', (req, res) => {
+    connection.query('select * from Posts order by Posts.id_post desc limit 3', (err, postSlider) => {
+        if (err) throw err;
+        res.send(postSlider);
+    });
+});
+
+
 var server = app.listen(3000, (err) => {
     if (err) throw err;
     console.log('Server start on port 3000!');

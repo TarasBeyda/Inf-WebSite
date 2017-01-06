@@ -44,47 +44,16 @@
 <div class="slider">
     <div class="slider_box">
         <nav>
-            <section>
+           
+            <section ng-repeat="key in main.postSlider.data">
                 <img src="/src/img/imagePost1.png" alt="Image post 1">
                 <article>
-                    <h2>Заголовок до певної новини 1</h2>
-                    <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam quod odit cum dignissimos, fuga ex suscipit delectus.</p>
+                    <h2>{{key.title_post}}</h2>
+                    <p class="fonts_content">{{key.content_post}}</p>
                     <button type="button"><a href="#">ПРОЧИТАТИ <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></button>
                 </article>
             </section>
-            <section>
-                <img src="/src/img/imagePost1.png" alt="Image post 1">
-                <article>
-                    <h2>Заголовок до певної новини 2</h2>
-                    <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam quod odit cum dignissimos, fuga ex suscipit delectus.</p>
-                    <button type="button"><a href="#">ПРОЧИТАТИ <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></button>
-                </article>
-            </section>
-            <section>
-                <img src="/src/img/imagePost1.png" alt="Image post 1">
-                <article>
-                    <h2>Заголовок до певної новини 3</h2>
-                    <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam quod odit cum dignissimos, fuga ex suscipit delectus.</p>
-                    <button type="button"><a href="#">ПРОЧИТАТИ <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></button>
-                </article>
-            </section>
-            <section>
-                <img src="/src/img/imagePost1.png" alt="Image post 1">
-                <article>
-                    <h2>Заголовок до певної новини 4</h2>
-                    <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam quod odit cum dignissimos, fuga ex suscipit delectus.</p>
-                    <button type="button"><a href="#">ПРОЧИТАТИ <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></button>
-                </article>
-            </section>
-            <section>
-                <img src="/src/img/imagePost1.png" alt="Image post 1">
-                <article>
-                    <h2>Заголовок до певної новини 5</h2>
-                    <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam quod odit cum dignissimos, fuga ex suscipit delectus.</p>
-                    <button type="button"><a href="#">ПРОЧИТАТИ <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></button>
-                </article>
-            </section>
-
+            
         </nav>
     </div>
     <div class="nav_slider">
@@ -109,7 +78,7 @@
       
         <section class="posts clearfix" ng-repeat="key in main.posts.data">
             <img src="/src/img/imagePost1.png" alt="Image post">
-            <a href="#">Категорія 1</a>
+            <a href="#">{{key.category}}</a>
             <article class="posts__content">
                 <h3>{{key.title_post}}</h3>
                 <p class="fonts_content">{{key.content_post}}</p>
@@ -124,6 +93,28 @@
         
     </div>
     
+    <div class="navigation__page" ng-click="main.navigationPage($event);">
+        
+        <div class="navigation__firstPrev">
+            <input type="button" value="Перша" class="navigation__first">
+            <button type="button">prev</button>
+        </div>
+        
+        <nav class="navigation__buttonPage">
+            <input type="button" value="1">
+            <input type="button" value="2">
+            <input type="button" value="3">
+            <input type="button" value="4">
+            <input type="button" value="5">
+        </nav>
+        
+        <div class="navigation__nextLatest">
+            <button type="button">next</button>
+            <input type="button" value="Остання">
+        </div>
+        
+    </div>
+    
     <div class="categories">
        
         <div class="demarcation">
@@ -133,26 +124,14 @@
        </div>
        
        <div class="categ__main">
-           <figure class="categ__box">
-                <img src="/src/img/CategEntertainment.png" alt="Categories entertainment">
-                <figcaption class="categ__box__name">
-                    <h2>Категорія 1</h2>
-                </figcaption>     
-           </figure>
 
-           <figure class="categ__box">
-                <img src="/src/img/CategTravel.png" alt="Categories travel">
-                <figcaption class="categ__box__name">
-                    <h2>Категорія 2</h2>
-                </figcaption>     
-           </figure>
-
-           <figure class="categ__box">
+           <figure class="categ__box" ng-repeat="key in main.postSlider.data">
                 <img src="/src/img/CategTechnology.png" alt="Categories technology">
                 <figcaption class="categ__box__name">
-                    <h2>Категорія 3</h2>
+                    <h2>{{key.category}}</h2>
                 </figcaption>     
            </figure>
+           
        </div>
        
     </div>

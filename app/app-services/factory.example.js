@@ -12,10 +12,12 @@ function mainPageFact() {
     };
     
     var posts;
+    var postSlider;
     
     return { 
         recommendMessageMe: recommendMessageMe,
-        posts: posts
+        posts: posts,
+        postSlider: postSlider
     };
     
 };
