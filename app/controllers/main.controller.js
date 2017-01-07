@@ -120,16 +120,16 @@ angular.module('Controllers', [])
     
     /*Repeat post in mainPage*/
     this.posts = mainPageFact.posts;
-    this.postInMainPage = function() {
-        $http.post('http://localhost:3000/postInMainPage')
-            .then((res) => {
-                console.log('Success postInMainPage', res);
-                this.posts = res;
-            }), function error(err) {
-                console.log('Error postInMainPage', err);
-            }
-    };
-    this.postInMainPage();
+//    this.postInMainPage = function() {
+//        $http.post('http://localhost:3000/postInMainPage')
+//            .then((res) => {
+//                console.log('Success postInMainPage', res);
+//                this.posts = res;
+//            }), function error(err) {
+//                console.log('Error postInMainPage', err);
+//            }
+//    };
+//    this.postInMainPage();
         
     
     /*Repeat post in slider*/
@@ -141,7 +141,7 @@ angular.module('Controllers', [])
                 this.postSlider = res;
             }), function error(err) {
                 console.log('Error postInSlider', err);
-            }
+             }
     };
     this.postInSlider();
         
@@ -178,15 +178,20 @@ angular.module('Controllers', [])
                 $('.navigation__buttonPage').prepend('<input type="button" value="'+elPointValue+'">');
                 $('.navigation__buttonPage input:last-child').remove();
             };
+        };   
+        
+        var objCountButtonActive = {
+            buttonActiveStart: (elValues*9)-8,
+            buttonActiveEnd: elValues*9
         };
-        
-        
-//        $http.post('http://localhost:3000/navigationPage')
-//            .then((res) => {
-//                console.log('Succeess navigationPage', res);
-//            }), function(err) {
-//                console.log('Error navigationPage', err);
-//            }
+        console.log('start '+objCountButtonActive.buttonActiveStart+' end '+objCountButtonActive.buttonActiveEnd);
+        $http.post('http://localhost:3000/navigationPage', objCountButtonActive)
+            .then((res) => {
+                console.log('Succeess navigationPage', res);
+                this.posts = res;
+            }), function(err) {
+                console.log('Error navigationPage', err);
+            }
     };
         
     
