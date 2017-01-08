@@ -11,13 +11,24 @@ function mainPageFact() {
         recommendMessage: ''
     };
     
-    var posts;
+    var posts = {
+        buttonActiveStart: 1,
+        buttonActiveEnd: 9
+    };
     var postSlider;
+    
+    var adm = {
+        login: '',
+        pass: ''
+    };
     
     return { 
         recommendMessageMe: recommendMessageMe,
+        
         posts: posts,
-        postSlider: postSlider
+        postSlider: postSlider,
+        
+        adm: adm
     };
     
 };

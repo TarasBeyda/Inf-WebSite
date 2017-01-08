@@ -47,15 +47,6 @@ app.post('/sendRecommendMessageMe', (req, res) => {
 });
 
 
-/*Repeat post in mainPage*/
-//app.post('/postInMainPage', (req, res) => {
-//    connection.query('select * from Posts', (err, posts) => {
-//        if (err) throw err;
-//        res.send(posts);
-//    });
-//});
-
-
 /*Repeat post in slider*/
 app.post('/postInSlider', (req, res) => {
     connection.query('select * from Posts order by Posts.id_post desc limit 3', (err, postSlider) => {
@@ -65,15 +56,21 @@ app.post('/postInSlider', (req, res) => {
 });
 
 
+/*Repeat post in mainPage*/
 /*Repeat post with navigation button*/
 app.post('/navigationPage', (req, res) => {
-    var objCountButtonActive = {
-        buttonActiveStart: req.body.buttonActiveStart,
-        buttonActiveEnd: req.body.buttonActiveEnd
-    };
-    connection.query('select * from Posts where Posts.id_post between ? and ?', [objCountButtonActive.buttonActiveStart, objCountButtonActive.buttonActiveEnd],(err, posts) => {
+    connection.query('select * from Posts where Posts.id_post between ? and ?', [req.body.buttonActiveStart, req.body.buttonActiveEnd],(err, posts) => {
         if (err) throw err;
         res.send(posts);
+    });
+});
+
+
+/*Sign in Adm panel*/
+app.post('/admSignIn', (req, res) => {
+    connection.query('select * from Admin', (err, admData) => {
+        if (err) throw err;
+        res.send(admData);
     });
 });
 

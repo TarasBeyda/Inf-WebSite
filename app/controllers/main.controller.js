@@ -1,7 +1,9 @@
 angular.module('Controllers', [])
 
     .controller('mainPageCtrl', mainPageCtrl)
+    .controller('admPageCtrl', admPageCtrl)
     mainPageCtrl.$inject = ['mainPageFact', '$http']
+    admPageCtrl.$inject = ['mainPageFact', '$http']
 
     function mainPageCtrl(mainPageFact, $http) {
     
@@ -118,20 +120,6 @@ angular.module('Controllers', [])
     };
         
     
-    /*Repeat post in mainPage*/
-    this.posts = mainPageFact.posts;
-//    this.postInMainPage = function() {
-//        $http.post('http://localhost:3000/postInMainPage')
-//            .then((res) => {
-//                console.log('Success postInMainPage', res);
-//                this.posts = res;
-//            }), function error(err) {
-//                console.log('Error postInMainPage', err);
-//            }
-//    };
-//    this.postInMainPage();
-        
-    
     /*Repeat post in slider*/
     this.postSlider = mainPageFact.postSlider;
     this.postInSlider = function() {
@@ -145,9 +133,12 @@ angular.module('Controllers', [])
     };
     this.postInSlider();
         
-        
+    
+    /*Repeat post in mainPage*/
     /*Navigation page*/
+    this.posts = mainPageFact.posts;
     this.navigationPage = function(e) {
+        
         var elValues = parseInt($(e.target).val());
         var elPointValue = parseInt($('.navigation__buttonPage input:nth-child(3)').val());
         var elAdd = elValues-elPointValue;
@@ -166,8 +157,7 @@ angular.module('Controllers', [])
             };
         } else 
         if (elValues < elPointValue && elValues !== 1 && elValues !== 2) {
-            elPointValue-=3;
-            console.log(elAdd);
+            elPointValue-=3; 
             if (elAdd === -2) {
                 for (var i=0; i<elAdd+4; i++) {
                     $('.navigation__buttonPage').prepend('<input type="button" value="'+elPointValue+'">');
@@ -178,21 +168,57 @@ angular.module('Controllers', [])
                 $('.navigation__buttonPage').prepend('<input type="button" value="'+elPointValue+'">');
                 $('.navigation__buttonPage input:last-child').remove();
             };
-        };   
+        } else if (elValues === 2 && parseInt($('.navigation__buttonPage input:first-child').val()) === 2) {
+            $('.navigation__buttonPage').prepend('<input type="button" value="'+1+'">');
+            $('.navigation__buttonPage input:last-child').remove();
+        };
         
-        var objCountButtonActive = {
+        $('.navigation__buttonPage input').removeClass('navigation__buttonActive');
+
+        for (var i=1; i<5; i++) {
+            if (parseInt($('.navigation__buttonPage input:nth-child('+i+')').val()) === elValues) {
+                $('.navigation__buttonPage input:nth-child('+i+')').addClass('navigation__buttonActive');
+            } 
+        };
+
+        this.posts = {
             buttonActiveStart: (elValues*9)-8,
             buttonActiveEnd: elValues*9
         };
-        console.log('start '+objCountButtonActive.buttonActiveStart+' end '+objCountButtonActive.buttonActiveEnd);
-        $http.post('http://localhost:3000/navigationPage', objCountButtonActive)
+        
+        this.postInMainPage();
+        
+    };
+    
+    this.postInMainPage = function() {
+        $http.post('http://localhost:3000/navigationPage', this.posts)
             .then((res) => {
                 console.log('Succeess navigationPage', res);
                 this.posts = res;
             }), function(err) {
                 console.log('Error navigationPage', err);
-            }
+            };    
     };
-        
+    this.postInMainPage();
     
-}
+};
+
+    function admPageCtrl(mainPageFact, $http) {
+      
+        /*Sign In Adm panel*/
+        this.adm = mainPageFact.adm;
+        this.admSignIn = function() {
+            this.adm = {
+                login: this.admLogin,
+                pass: this.admPass
+            };
+            $http.post('http://localhost:3000/admSignIn', this.adm)
+                .then((res) => {
+                console.log('Success admSingIn', res);
+            }), function(err) {
+                console.log('Error admSingIn', err);
+            };
+        };
+        
+    };
+
