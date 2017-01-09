@@ -83,6 +83,15 @@ app.post('/admSignIn', (req, res) => {
 });
 
 
+/*Send in mysql new post*/
+app.post('/sendNewPost', (req, res) => {
+    connection.query('insert into Posts(title_post, content_post, short_description, category) values ("?", "?", "?", "?")', [req.body.subject, req.body.content_post, req.body.short_description, req.body.content_post], (err) => {
+        if (err) throw err;
+    });
+    res.send(200);
+});
+
+
 var server = app.listen(3000, (err) => {
     if (err) throw err;
     console.log('Server start on port 3000!');

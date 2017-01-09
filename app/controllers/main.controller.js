@@ -201,12 +201,6 @@ function mainPageCtrl(mainPageFact, $http) {
     };
     this.postInMainPage();
     
-    
-    /*Add new post in adm panel*/
-    this.addNewPost = function() {
-        
-    };
-    
 };
 
 
@@ -228,6 +222,51 @@ function admPageCtrl(mainPageFact, $http) {
                 $('.admin__wrapper').css('display', 'block');
             }), function(err) {
                 console.log('Error admSingIn', err);
+            };
+    };
+    
+    
+    /*Show adm menu*/
+    this.showAdmPanel = function(e) {
+        
+        var numberEl = $('.admin__wrapper h2').index(e.target)+1;
+        var nthChild = $('.admin__wrapper div:nth-child('+numberEl+')');
+        
+        if (nthChild.hasClass('active')) {
+            nthChild.stop(true).queue('fx', function() {
+                nthChild.animate({
+                    height: '30px'
+                }, 1000);
+                nthChild.removeClass('active');
+            })
+                .dequeue('fx');
+        } else {
+            nthChild.stop(true).queue('fx', function() {
+                nthChild.animate({
+                    height: '425px'
+                }, 1000);
+                nthChild.addClass('active');
+            })
+                .dequeue('fx');
+        };
+        
+    };
+    
+    
+    /*Send in mysql new post*/
+    this.sendNewDemonstratePost = mainPageFact.sendNewDemonstratePost;
+    this.sendNewPost = function() {
+        this.sendNewDemonstratePost = {
+            subject: this.demonstr__subject,
+            category: this.demonstr__categore,
+            short_description: this.demonstr__shortDescript,
+            content_post: this.demonstr__contentPost
+        };
+        $http.post('http://localhost:3000/sendNewPost', this.sendNewDemonstratePost)
+            .then((res) => {
+                console.log('Success sendNewPost');
+            }), function(err) {
+                console.log('Error sendNewPost');        
             };
     };
 

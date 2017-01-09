@@ -22,13 +22,17 @@ function mainPageFact() {
         pass: ''
     };
     
+    var sendNewDemonstratePost;
+    
     return { 
         recommendMessageMe: recommendMessageMe,
         
         posts: posts,
         postSlider: postSlider,
         
-        adm: adm
+        adm: adm,
+        
+        sendNewDemonstratePost: sendNewDemonstratePost
     };
     
 };

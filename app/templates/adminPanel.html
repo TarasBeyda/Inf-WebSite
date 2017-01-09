@@ -23,39 +23,42 @@
 
     </div>
 
-    <div class="wrapper admin__wrapper">
+    <div class="wrapper admin__wrapper" ng-click="admPanel.showAdmPanel($event);">
 
         <div class="admin__block">
            
-            <h2 ng-click="admPanel.addNewPost();">Додавання новини <i class="fa fa-plus" aria-hidden="true"></i></h2>
+            <h2 class="add__post">Додавання новини <i class="fa fa-plus" aria-hidden="true"></i></h2>
             
             <p>Зоображення</p>
             <input type="file">
             
             <p>Тема</p>
-            <textarea rows="3"></textarea>
+            <textarea rows="3" ng-model="admPanel.demonstr__subject"></textarea>
             
             <p>Категорія</p>
-            <select>
+            <select ng-model="admPanel.demonstr__categore">
                 <option>Категорія 1</option>
                 <option>Категорія 2</option>
                 <option>Категорія 3</option>
             </select>
             
             <p>Короткий опис</p>
-            <textarea rows="5"></textarea>
+            <textarea rows="5" ng-model="admPanel.demonstr__shortDescript"></textarea>
             
             <p>Повний опис</p>
-            <textarea rows="8"></textarea>
+            <textarea rows="8" ng-model="admPanel.demonstr__contentPost"></textarea>
+            
+            <button type="button">Demonstrate <i class="fa fa-eye" aria-hidden="true"></i></button>
+            <button type="button" ng-click="admPanel.sendNewPost();">Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
             
         </div>
 
         <div class="admin__block">
-            <h2>Редагування 2</h2>
+            <h2 class="edit__post">Редагування новини</h2>
         </div>
 
         <div class="admin__block">
-            <h2>Редагування 3</h2>
+            <h2 class="remove__post">Видалення новини</h2>
         </div>
 
     </div>
