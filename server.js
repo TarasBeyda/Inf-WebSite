@@ -68,9 +68,17 @@ app.post('/navigationPage', (req, res) => {
 
 /*Sign in Adm panel*/
 app.post('/admSignIn', (req, res) => {
+    var count = 0;
     connection.query('select * from Admin', (err, admData) => {
-        if (err) throw err;
-        res.send(admData);
+        for (var i=0; i<admData.length; i++) {
+            if (req.body.login === admData[i].login_adm && req.body.pass === admData[i].pass_adm) {
+                res.send(admData);
+            } else if (req.body.login !== admData[i].login_adm || req.body.pass !== admData[i].pass_adm) {
+                count++;
+            } else if (count === admData.length-1) {
+                throw err;
+            }
+        }
     });
 });
 

@@ -1,37 +1,63 @@
-<header class="head admin__head">
-    
-    <div class="top">
-        <h1>IНФОТЕХ</h1>
-    </div>
-    
-</header>
+<div ng-controller='admPageCtrl as admPanel'>
+   
+    <header class="head admin__head">
 
-<div class="admin__signIn">
-    
-    <div class="controll__signIn">
-        <p>Логін:</p>
-        <input type="text" ng-model="admLogin">
+        <div class="top">
+            <h1>IНФОТЕХ</h1>
+<!--            <h1>{{admPanel.admData.data[0].login_adm}}</h1>-->
+        </div>
 
-        <p>Пароль:</p>
-        <input type="password" ng-model="admPass">
+    </header>
 
-        <button type="button"><i class="fa fa-sign-in fa-5x" aria-hidden="true"></i></button>
-    </div>
-    
-</div>
+    <div class="admin__signIn">
 
-<div class="wrapper admin__wrapper">
-    
-    <div class="admin__block">
-        <h2>Редагування 1</h2>
+        <div class="controll__signIn">
+            <p>Логін:</p>
+            <input type="text" ng-model="admPanel.admLogin">
+
+            <p>Пароль:</p>
+            <input type="password" ng-model="admPanel.admPass">
+
+            <button type="button" ng-click="admPanel.admSignIn();"><i class="fa fa-sign-in fa-5x" aria-hidden="true"></i></button>
+        </div>
+
     </div>
-    
-    <div class="admin__block">
-        <h2>Редагування 2</h2>
+
+    <div class="wrapper admin__wrapper">
+
+        <div class="admin__block">
+           
+            <h2 ng-click="admPanel.addNewPost();">Додавання новини <i class="fa fa-plus" aria-hidden="true"></i></h2>
+            
+            <p>Зоображення</p>
+            <input type="file">
+            
+            <p>Тема</p>
+            <textarea rows="3"></textarea>
+            
+            <p>Категорія</p>
+            <select>
+                <option>Категорія 1</option>
+                <option>Категорія 2</option>
+                <option>Категорія 3</option>
+            </select>
+            
+            <p>Короткий опис</p>
+            <textarea rows="5"></textarea>
+            
+            <p>Повний опис</p>
+            <textarea rows="8"></textarea>
+            
+        </div>
+
+        <div class="admin__block">
+            <h2>Редагування 2</h2>
+        </div>
+
+        <div class="admin__block">
+            <h2>Редагування 3</h2>
+        </div>
+
     </div>
-    
-    <div class="admin__block">
-        <h2>Редагування 3</h2>
-    </div>
-    
+
 </div>

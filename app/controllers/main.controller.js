@@ -5,7 +5,7 @@ angular.module('Controllers', [])
     mainPageCtrl.$inject = ['mainPageFact', '$http']
     admPageCtrl.$inject = ['mainPageFact', '$http']
 
-    function mainPageCtrl(mainPageFact, $http) {
+function mainPageCtrl(mainPageFact, $http) {
     
     /*Small menu*/
     this.showSmallMenu = function() {
@@ -201,24 +201,35 @@ angular.module('Controllers', [])
     };
     this.postInMainPage();
     
+    
+    /*Add new post in adm panel*/
+    this.addNewPost = function() {
+        
+    };
+    
 };
 
-    function admPageCtrl(mainPageFact, $http) {
-      
-        /*Sign In Adm panel*/
-        this.adm = mainPageFact.adm;
-        this.admSignIn = function() {
-            this.adm = {
-                login: this.admLogin,
-                pass: this.admPass
-            };
-            $http.post('http://localhost:3000/admSignIn', this.adm)
-                .then((res) => {
+
+function admPageCtrl(mainPageFact, $http) {
+
+    /*Sign In Adm panel*/
+    this.adm = mainPageFact.adm;
+    this.admSignIn = function() {
+        this.adm = {
+            login: this.admLogin,
+            pass: this.admPass
+        };
+        $http.post('http://localhost:3000/admSignIn', this.adm)
+            .then((res) => {
                 console.log('Success admSingIn', res);
+                this.admData = res;
+                $('.admin__signIn').css('display', 'none');
+                $('.admin__head').css('display', 'block');
+                $('.admin__wrapper').css('display', 'block');
             }), function(err) {
                 console.log('Error admSingIn', err);
             };
-        };
-        
     };
+
+};
 
