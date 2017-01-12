@@ -264,10 +264,84 @@ function admPageCtrl(mainPageFact, $http) {
         };
         $http.post('http://localhost:3000/sendNewPost', this.sendNewDemonstratePost)
             .then((res) => {
-                console.log('Success sendNewPost');
+                console.log('Success sendNewPost', res);
             }), function(err) {
-                console.log('Error sendNewPost');        
+                console.log('Error sendNewPost', err);        
             };
+    };
+    
+    
+    /*Show demonstrate new post*/
+    this.showNewPost = function() {
+        var heightDemonstr = parseInt($('.demonstrate__post').css('height'))+460+'px';
+        $('.demonstrate__post').show();
+        $('.admin__wrapper div:first-child').animate({
+            height: heightDemonstr
+        }, 1000);
+    };
+    
+    
+    /*All posts*/
+    this.allposts = mainPageFact.allPosts;
+    this.showAllPosts = function() {
+        $http.post('http://localhost:3000/showAllPosts')
+            .then((res) => {
+                console.log('Success sendNewPost', res);
+                this.allposts = res;
+                console.log(this.allposts);
+            }), function(err) {
+                console.log('Error sendNewPost', err);        
+            };  
+    };
+    this.showAllPosts();
+    
+    
+    /*Search post in adm panel to edit*/
+    this.searchEdit__post = mainPageFact.searchEdit__post;
+    this.editPost = function() {
+        for (var i=0; i<=this.allposts.data.length; i++) {
+            if (this.searchEdit__post === this.allposts.data[i].title_post) {
+                
+            }
+        }
+    };
+    
+    
+    /*Search post in adm panel to remove*/
+    this.searchRemove__post = mainPageFact.searchRemove__post;
+    this.demonstrateRemove__post = mainPageFact.demonstrateRemove__post;
+    this.removePost = function() {
+        for (var i=0; i<this.allposts.data.length; i++) {
+            this.i = i;
+            if (this.searchRemove__post === this.allposts.data[i].title_post) {
+                this.demonstrateRemove__post = this.allposts.data[i];
+                console.log(this.demonstrateRemove__post);
+                $('.demonstrateRemove__post').show();
+                $('.send__remove').show();
+            }
+        }
+    };
+    
+    
+    /*Send remove post*/
+    this.sendRemovePost = function(e) {
+        var elSend = $(e.target).val();
+        if (elSend === 'Так') {   
+            var idRemovePost = {
+                id_post: this.demonstrateRemove__post.id_post
+            };
+            $http.post('http://localhost:3000/sendRemovePost', idRemovePost)
+                .then((res) => {
+                    console.log('Success sendRemovePost', res);
+                    $('.demonstrateRemove__post').hide();
+                    $('.send__remove').hide();
+                }), function(err) {
+                    console.log('Error sendRemove post', err);
+                }
+        } else if (elSend === 'Ні') {
+            $('.demonstrateRemove__post').hide();
+            $('.send__remove').hide();
+        }
     };
 
 };

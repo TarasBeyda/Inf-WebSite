@@ -556,6 +556,11 @@ h3 {
 .admin__wrapper {
     display: none;
 }
+.demonstrate__post,
+.demonstrateRemove__post,
+.send__remove {
+    display: none;
+}
 
 
 /*Admin sign in*/

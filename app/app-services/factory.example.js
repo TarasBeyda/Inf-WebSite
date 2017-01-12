@@ -23,6 +23,10 @@ function mainPageFact() {
     };
     
     var sendNewDemonstratePost;
+    var allposts;
+    var searchEdit__post;
+    var searchRemove__post;
+    var demonstrateRemove__post;
     
     return { 
         recommendMessageMe: recommendMessageMe,
@@ -32,7 +36,11 @@ function mainPageFact() {
         
         adm: adm,
         
-        sendNewDemonstratePost: sendNewDemonstratePost
+        sendNewDemonstratePost: sendNewDemonstratePost,
+        allposts: allposts,
+        searchEdit__post: searchEdit__post,
+        searchRemove__post: searchRemove__post,
+        demonstrateRemove__post: demonstrateRemove__post
     };
     
 };

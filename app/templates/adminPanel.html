@@ -4,7 +4,6 @@
 
         <div class="top">
             <h1>IНФОТЕХ</h1>
-<!--            <h1>{{admPanel.admData.data[0].login_adm}}</h1>-->
         </div>
 
     </header>
@@ -48,17 +47,60 @@
             <p>Повний опис</p>
             <textarea rows="8" ng-model="admPanel.demonstr__contentPost"></textarea>
             
-            <button type="button">Demonstrate <i class="fa fa-eye" aria-hidden="true"></i></button>
+            <button type="button" ng-click="admPanel.showNewPost();">Demonstrate <i class="fa fa-eye" aria-hidden="true"></i></button>
             <button type="button" ng-click="admPanel.sendNewPost();">Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            
+            <section class="posts clearfix demonstrate__post" ng-click="admPanel.showNewPost();">
+                <img src="/src/img/imagePost1.png" alt="Image post">
+                <a href="#">{{admPanel.demonstr__categore}}</a>
+                <article class="posts__content">
+                    <h3>{{admPanel.demonstr__subject}}</h3>
+                    <p class="fonts_content">{{admPanel.demonstr__shortDescript}}</p>
+                </article>
+                <div class="posts__btnLeft">
+                    <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
+                </div>
+                <div class="posts__btnLeft">
+                    <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
+                </div>
+            </section>
             
         </div>
 
         <div class="admin__block">
-            <h2 class="edit__post">Редагування новини</h2>
+            <h2 class="edit__post">Редагування новини <i class="fa fa-pencil" aria-hidden="true"></i></h2>    
+            <input type="text" placeholder="Тема новини" ng-model="admPanel.searchEdit__post">
+            <button type="button" ng-click="admPanel.editPost();">Search</button>
         </div>
 
         <div class="admin__block">
-            <h2 class="remove__post">Видалення новини</h2>
+           
+            <h2 class="remove__post">Видалення новини <i class="fa fa-trash" aria-hidden="true"></i></h2>
+            
+            <input type="text" placeholder="Тема новини" ng-model="admPanel.searchRemove__post">
+            <button type="button" ng-click="admPanel.removePost();">Search</button>
+            
+            <section class="posts clearfix demonstrateRemove__post" ng-click="admPanel.showNewPost();">
+                <img src="/src/img/imagePost1.png" alt="Image post">
+                <a href="#">{{admPanel.demonstrateRemove__post.category}}</a>
+                <article class="posts__content">
+                    <h3>{{admPanel.demonstrateRemove__post.title_post}}</h3>
+                    <p class="fonts_content">{{admPanel.demonstrateRemove__post.short_description}}</p>
+                </article>
+                <div class="posts__btnLeft">
+                    <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
+                </div>
+                <div class="posts__btnLeft">
+                    <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
+                </div>
+            </section>
+            
+            <div class="send__remove" ng-click="admPanel.sendRemovePost($event);">
+                <p>Видалити цю новину?</p>
+                <input type="button" value="Так">
+                <input type="button" value="Ні">
+            </div>
+            
         </div>
 
     </div>

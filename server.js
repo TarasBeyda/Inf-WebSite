@@ -85,9 +85,31 @@ app.post('/admSignIn', (req, res) => {
 
 /*Send in mysql new post*/
 app.post('/sendNewPost', (req, res) => {
-    connection.query('insert into Posts(title_post, content_post, short_description, category) values ("?", "?", "?", "?")', [req.body.subject, req.body.content_post, req.body.short_description, req.body.content_post], (err) => {
+    connection.query('insert into Posts(title_post, content_post, short_description, category) values (?, ?, ?, ?)', [req.body.subject, req.body.content_post, req.body.short_description, req.body.category], (err) => {
         if (err) throw err;
     });
+    res.send(200);
+});
+
+
+/*All posts*/
+app.post('/showAllPosts', (req, res) => {
+    connection.query('select * from Posts', (err, allposts) => {
+        if (err) throw err;
+        res.send(allposts);
+    });
+});
+
+
+/*Search post in adm panel to edit*/
+
+
+
+/*Send remove post*/
+app.post('/sendRemovePost', (req, res) => {
+    connection.query('delete Posts.* from Posts where id_post = ?', [req.body.id_post], (err) => {
+        if (err) throw err;
+    })
     res.send(200);
 });
 
