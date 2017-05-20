@@ -6,6 +6,7 @@ var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 
 var app = express();
+var path = require("path");
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -105,6 +106,42 @@ app.post('/showAllPosts', (req, res) => {
 
 
 
+/* Paginations */
+app.get('/api/paginations/start', function (req, res) {
+    var data = {
+        "Data": ""
+    };
+
+    connection.query("select * from Posts order by id_post desc limit 1,10", function (err, rows) {
+        if (err) throw err;
+        if (rows.length != 0) {
+            data["Data"] = rows;
+            res.json(data);
+        } else {
+            data["Data"] = "No data found..";
+            res.json(data);
+        }
+    })
+});
+app.post("/api/paginations/change", function (req, res) {
+    var currentPage = req.body.currentPage-1;
+    var data = {
+        "Data": ""
+    };
+
+    connection.query("select * from Posts order by id_post desc limit ?, ?", [currentPage*10, 10], function (err, rows) {
+        if (err) throw err;
+        if(rows.length != 0){
+            data["Data"] = rows;
+            res.json(data);
+        }else{
+            data["Data"] = "Error post paginations";
+            res.json(data);
+        }
+    })
+});
+
+
 /*Send remove post*/
 app.post('/sendRemovePost', (req, res) => {
     connection.query('delete Posts.* from Posts where id_post = ?', [req.body.id_post], (err) => {
@@ -112,6 +149,11 @@ app.post('/sendRemovePost', (req, res) => {
     })
     res.send(200);
 });
+
+app.get('/', function (req, res) {
+    app.use(express.static(__dirname + '/'));
+    res.sendfile('index.html');
+})
 
 
 var server = app.listen(3000, (err) => {

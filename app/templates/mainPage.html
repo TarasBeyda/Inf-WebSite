@@ -76,7 +76,7 @@
     
     <div class="latest__posts">
       
-        <section class="posts clearfix" ng-repeat="key in main.posts.data">
+        <section class="posts clearfix" ng-repeat="key in paginations">
             <img src="/src/img/imagePost1.png" alt="Image post">
             <a href="#">{{key.category}}</a>
             <article class="posts__content">
@@ -92,27 +92,38 @@
         </section>
         
     </div>
+
+    <ul uib-pagination
+        ng-change="pageChanged();"
+        ng-model="currentPage"
+        items-per-page="itemsPerPage"
+        total-items="totalItems"
+        max-size="maxSize"
+        class="pagination-md"
+        boundary-links="true"
+        num-pages="numPages">
+    </ul>
     
-    <div class="navigation__page" ng-click="main.navigationPage($event);">
-        
-        <div class="navigation__first">
-            <input type="button" value="Перша">
-        </div>
-        
-        <nav class="navigation__buttonPage">
-            <input type="button" value="1" class="navigation__buttonActive">
-            <input type="button" value="2">
-            <input type="button" value="3">
-            <input type="button" value="4">
-            <input type="button" value="5">
-        </nav>
-        
-        <div class="navigation__latest">
-            <input type="button" value="Остання">
-        </div>
-        
-    </div>
-    
+    <!--<div class="navigation__page" ng-click="main.navigationPage($event);">-->
+        <!---->
+        <!--<div class="navigation__first">-->
+            <!--<input type="button" value="Перша">-->
+        <!--</div>-->
+        <!---->
+        <!--<nav class="navigation__buttonPage">-->
+            <!--<input type="button" value="1" class="navigation__buttonActive">-->
+            <!--<input type="button" value="2">-->
+            <!--<input type="button" value="3">-->
+            <!--<input type="button" value="4">-->
+            <!--<input type="button" value="5">-->
+        <!--</nav>-->
+        <!---->
+        <!--<div class="navigation__latest">-->
+            <!--<input type="button" value="Остання">-->
+        <!--</div>-->
+        <!---->
+    <!--</div>-->
+
     <div class="categories">
        
         <div class="demarcation">

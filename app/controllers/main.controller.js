@@ -1,11 +1,13 @@
-angular.module('Controllers', [])
+var app = angular.module('Controllers', ['ui.bootstrap'])
 
     .controller('mainPageCtrl', mainPageCtrl)
     .controller('admPageCtrl', admPageCtrl)
-    mainPageCtrl.$inject = ['mainPageFact', '$http']
+    mainPageCtrl.$inject = ['$scope', 'mainPageFact', '$http', "PaginationsService"]
     admPageCtrl.$inject = ['mainPageFact', '$http']
 
-function mainPageCtrl(mainPageFact, $http) {
+function mainPageCtrl($scope, mainPageFact, $http, PaginationsService) {
+
+    $('.opacity-loader').show();
     
     /*Small menu*/
     this.showSmallMenu = function() {
@@ -188,6 +190,48 @@ function mainPageCtrl(mainPageFact, $http) {
         
         this.postInMainPage();
         
+    };
+
+    var vm = $scope;
+    vm.paginations;
+
+    PaginationsService.getPaginationsStart()
+        .then(
+            function (response) {
+                setTimeout(function () {
+                    $('.opacity-loader').hide();
+                }, 1000);
+                vm.paginations = response.Data;
+            },
+            function (errResponse) {
+                console.log("Error get paginations service on paginationsCtrl");
+            }
+        )
+
+    vm.totalItems = 64;
+    vm.currentPage = 1;
+    vm.itemsPerPage = 10;
+    vm.maxSize = 5;
+
+    vm.pageChanged = function(currentPage) {
+        $('.opacity-loader').show();
+        var data = ({
+            currentPage: vm.currentPage
+        });
+        setTimeout(function () {
+            PaginationsService.postPaginationsChange(data)
+                .then(
+                    function (response) {
+                        // setTimeout(function () {
+                        $('.opacity-loader').hide();
+                        // }, 1000);
+                        vm.paginations = response.Data;
+                    },
+                    function (errResponse) {
+                        console.log("Error get paginations service on paginationsCtrl");
+                    }
+                );
+        }, 1000);
     };
     
     this.postInMainPage = function() {

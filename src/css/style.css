@@ -45,6 +45,7 @@ h3 {
 .head h1 {
     text-align: center;
     padding: 26px 0 27px;
+    margin: 0;
 }
 
 
@@ -598,7 +599,40 @@ h3 {
     top: 38px;
 }
 
+.opacity-loader {
+    display: none;
+    left: 0;
+    top: 0;
+    position: fixed;
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+}
 
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -60px;
+    margin-top: -60px;
+    transform: translate(-50%, -50%);
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    -webkit-border-radius:;
+    -moz-border-radius:;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    -o-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 
 
