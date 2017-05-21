@@ -75,4 +75,4 @@ insert into Admin(login_adm, pass_adm) values
 
 select * from Admin;
 
-
+select * from Posts order by id_post desc limit 9, 9;

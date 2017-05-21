@@ -112,7 +112,7 @@ app.get('/api/paginations/start', function (req, res) {
         "Data": ""
     };
 
-    connection.query("select * from Posts order by id_post desc limit 1,10", function (err, rows) {
+    connection.query("select * from Posts order by id_post desc limit 0,9", function (err, rows) {
         if (err) throw err;
         if (rows.length != 0) {
             data["Data"] = rows;
@@ -124,12 +124,29 @@ app.get('/api/paginations/start', function (req, res) {
     })
 });
 app.post("/api/paginations/change", function (req, res) {
-    var currentPage = req.body.currentPage-1;
+    var currentPage = (req.body.currentPage-1)*9;
     var data = {
         "Data": ""
     };
 
-    connection.query("select * from Posts order by id_post desc limit ?, ?", [currentPage*10, 10], function (err, rows) {
+    connection.query("select * from Posts order by id_post desc limit ?, ?", [currentPage, 9], function (err, rows) {
+        if (err) throw err;
+        if(rows.length != 0){
+            data["Data"] = rows;
+            res.json(data);
+        }else{
+            data["Data"] = "Error post paginations";
+            res.json(data);
+        }
+    })
+});
+app.post("/api/select-post", function (req, res) {
+    var selectPost = req.body.selectPost+1;
+    var data = {
+        "Data": ""
+    };
+
+    connection.query("select * from Posts order by id_post desc limit ?, ?", [selectPost, 1], function (err, rows) {
         if (err) throw err;
         if(rows.length != 0){
             data["Data"] = rows;

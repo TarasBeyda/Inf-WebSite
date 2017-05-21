@@ -27,6 +27,8 @@ function mainPageFact() {
     var searchEdit__post;
     var searchRemove__post;
     var demonstrateRemove__post;
+
+    var contentActivePost;
     
     return { 
         recommendMessageMe: recommendMessageMe,
@@ -40,7 +42,9 @@ function mainPageFact() {
         allposts: allposts,
         searchEdit__post: searchEdit__post,
         searchRemove__post: searchRemove__post,
-        demonstrateRemove__post: demonstrateRemove__post
+        demonstrateRemove__post: demonstrateRemove__post,
+
+        contentActivePost: contentActivePost
     };
     
 };

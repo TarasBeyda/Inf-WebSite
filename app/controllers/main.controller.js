@@ -2,10 +2,10 @@ var app = angular.module('Controllers', ['ui.bootstrap'])
 
     .controller('mainPageCtrl', mainPageCtrl)
     .controller('admPageCtrl', admPageCtrl)
-    mainPageCtrl.$inject = ['$scope', 'mainPageFact', '$http', "PaginationsService"]
+    mainPageCtrl.$inject = ['$scope', 'mainPageFact', '$http', "$location", "PaginationsService", "SelectPost"]
     admPageCtrl.$inject = ['mainPageFact', '$http']
 
-function mainPageCtrl($scope, mainPageFact, $http, PaginationsService) {
+function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService, SelectPost) {
 
     $('.opacity-loader').show();
     
@@ -222,17 +222,45 @@ function mainPageCtrl($scope, mainPageFact, $http, PaginationsService) {
             PaginationsService.postPaginationsChange(data)
                 .then(
                     function (response) {
-                        // setTimeout(function () {
                         $('.opacity-loader').hide();
-                        // }, 1000);
                         vm.paginations = response.Data;
                     },
                     function (errResponse) {
                         console.log("Error get paginations service on paginationsCtrl");
                     }
-                );
-        }, 1000);
+                )
+        }, 1000)
     };
+
+    vm.selectPost = function ($index) {
+        $('.opacity-loader').show();
+        vm.selectPost = $index;
+        var data = ({
+            selectPost: ((vm.currentPage-1)*10)+vm.selectPost-vm.currentPage
+        });
+        setTimeout(function () {
+            SelectPost.postSelectId(data)
+                .then(
+                    function (response) {
+                        $('.opacity-loader').hide();
+                        $location.path('/post');
+                        mainPageFact.contentActivePost = response.Data;
+                    },
+                    function (errResponse) {
+                        console.log("Error select post!");
+                    }
+                )
+        }, 1000)
+    };
+
+    vm.init = function () {
+        if ($location.$$path == '/post') {
+            vm.activePost = mainPageFact.contentActivePost[0];
+            console.log(vm.activePost);
+        }
+    };
+
+    vm.init();
     
     this.postInMainPage = function() {
         $http.post('http://localhost:3000/navigationPage', this.posts)
