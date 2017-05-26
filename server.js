@@ -14,7 +14,7 @@ app.use(cors());
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '1857treytre',
+    password: '1',
     database: 'InfWebSite'
 });
 

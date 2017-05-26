@@ -24,84 +24,188 @@
 
     <div class="wrapper admin__wrapper" ng-click="admPanel.showAdmPanel($event);">
 
-        <div class="admin__block">
-           
-            <h2 class="add__post">Додавання новини <i class="fa fa-plus" aria-hidden="true"></i></h2>
-            
-            <p>Зоображення</p>
-            <input type="file">
-            
-            <p>Тема</p>
-            <textarea rows="3" ng-model="admPanel.demonstr__subject"></textarea>
-            
-            <p>Категорія</p>
-            <select ng-model="admPanel.demonstr__categore">
-                <option>Категорія 1</option>
-                <option>Категорія 2</option>
-                <option>Категорія 3</option>
-            </select>
-            
-            <p>Короткий опис</p>
-            <textarea rows="5" ng-model="admPanel.demonstr__shortDescript"></textarea>
-            
-            <p>Повний опис</p>
-            <textarea rows="8" ng-model="admPanel.demonstr__contentPost"></textarea>
-            
-            <button type="button" ng-click="admPanel.showNewPost();">Demonstrate <i class="fa fa-eye" aria-hidden="true"></i></button>
-            <button type="button" ng-click="admPanel.sendNewPost();">Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-            
-            <section class="posts clearfix demonstrate__post" ng-click="admPanel.showNewPost();">
-                <img src="/src/img/imagePost1.png" alt="Image post">
-                <a href="#">{{admPanel.demonstr__categore}}</a>
-                <article class="posts__content">
-                    <h3>{{admPanel.demonstr__subject}}</h3>
-                    <p class="fonts_content">{{admPanel.demonstr__shortDescript}}</p>
-                </article>
-                <div class="posts__btnLeft">
-                    <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
-                </div>
-                <div class="posts__btnLeft">
-                    <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
-                </div>
-            </section>
-            
-        </div>
+        <uib-accordion close-others="oneAtATime">
 
-        <div class="admin__block">
-            <h2 class="edit__post">Редагування новини <i class="fa fa-pencil" aria-hidden="true"></i></h2>    
-            <input type="text" placeholder="Тема новини" ng-model="admPanel.searchEdit__post">
-            <button type="button" ng-click="admPanel.editPost();">Search</button>
-        </div>
+            <div uib-accordion-group class="panel-default" is-open="status.open">
 
-        <div class="admin__block">
-           
-            <h2 class="remove__post">Видалення новини <i class="fa fa-trash" aria-hidden="true"></i></h2>
-            
-            <input type="text" placeholder="Тема новини" ng-model="admPanel.searchRemove__post">
-            <button type="button" ng-click="admPanel.removePost();">Search</button>
-            
-            <section class="posts clearfix demonstrateRemove__post" ng-click="admPanel.showNewPost();">
-                <img src="/src/img/imagePost1.png" alt="Image post">
-                <a href="#">{{admPanel.demonstrateRemove__post.category}}</a>
-                <article class="posts__content">
-                    <h3>{{admPanel.demonstrateRemove__post.title_post}}</h3>
-                    <p class="fonts_content">{{admPanel.demonstrateRemove__post.short_description}}</p>
-                </article>
-                <div class="posts__btnLeft">
-                    <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
-                </div>
-                <div class="posts__btnLeft">
-                    <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
-                </div>
-            </section>
-            
-            <div class="send__remove" ng-click="admPanel.sendRemovePost($event);">
-                <p>Видалити цю новину?</p>
-                <input type="button" value="Так">
-                <input type="button" value="Ні">
+                <uib-accordion-heading>
+                    Додавання статті<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </uib-accordion-heading>
+
+                <form action="" class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-1" for="theme">Тема:</label>
+                        <div class="col-sm-11">
+                            <input type="text" class="form-control" id="theme" placeholder="Введіть тему" name="theme" ng-model="admPanel.demonstr__subject">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-1">Категорія</label>
+                        <div class="col-sm-11">
+                            <select name="categ" id="categ" ng-model="admPanel.demonstr__categore" style="height: 30px; width: auto; background: transparent;">
+                                <option value="news">Новини</option>
+                                <option value="views">Огляди</option>
+                                <option value="articles">Статті</option>
+                                <option value="blog">Блог</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-1" for="short_desc">Короткий опис:</label>
+                        <div class="col-sm-11">
+                            <textarea rows="5" ng-model="admPanel.demonstr__shortDescript" id="short_desc" class="form-controll col-sm-12" placeholder="Введіть короткий опис статті.."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-1" for="full_desc">Повний опис:</label>
+                        <div class="col-sm-11">
+                            <textarea rows="5" ng-model="admPanel.demonstr__contentPost" id="full_desc" class="form-controll col-sm-12" placeholder="Введіть повний опис статті.."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-md btn-primary review_admin" ng-click="admPanel.showNewPost();">Переглянути<i class="fa fa-eye" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-nd btn-success send_admin" ng-click="admPanel.sendNewPost();">Відправити<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+
+                    <section class="posts clearfix demonstrate__post" ng-click="admPanel.showNewPost();">
+                        <img src="/src/img/imagePost1.png" alt="Image post">
+                        <a href="#">{{admPanel.demonstr__categore}}</a>
+                        <article class="posts__content">
+                            <h3>{{admPanel.demonstr__subject}}</h3>
+                            <p class="fonts_content">{{admPanel.demonstr__shortDescript}}</p>
+                        </article>
+                        <div class="posts__btnLeft">
+                            <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
+                        </div>
+                        <div class="posts__btnLeft">
+                            <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
+                        </div>
+                    </section>
+
+                </form>
+
             </div>
-            
-        </div>
+
+            <div uib-accordion-group class="panel-default" is-open="status2.open">
+
+                <uib-accordion-heading>
+                    Видалення статті<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status2.open, 'glyphicon-chevron-right': !status2.open}"></i>
+                </uib-accordion-heading>
+
+                <form action="" class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-1" for="remove_theme">Тема:</label>
+                        <div class="col-sm-11">
+                            <input type="text" class="form-control" id="remove_theme" placeholder="Введіть тему" name="theme" ng-model="admPanel.searchRemove__post">
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-md btn-primary review_admin" ng-click="admPanel.removePost();">Знайти</button>
+
+                    <section class="posts clearfix demonstrateRemove__post" ng-click="admPanel.showNewPost();">
+                        <img src="/src/img/imagePost1.png" alt="Image post">
+                        <a href="#">{{admPanel.demonstrateRemove__post.category}}</a>
+                        <article class="posts__content">
+                            <h3>{{admPanel.demonstrateRemove__post.title_post}}</h3>
+                            <p class="fonts_content">{{admPanel.demonstrateRemove__post.short_description}}</p>
+                        </article>
+                        <div class="posts__btnLeft">
+                            <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
+                        </div>
+                        <div class="posts__btnLeft">
+                            <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
+                        </div>
+                    </section>
+
+                    <div class="send__remove" ng-click="admPanel.sendRemovePost($event);">
+                        <p>Видалити цю новину?</p>
+                        <input type="button" class="btn btn-md btn-success" value="Так">
+                        <input type="button" class="btn btn-md btn-danger" value="Ні">
+                    </div>
+
+                </form>
+
+            </div>
+
+        </uib-accordion>
+
+
+        <!--<div class="admin__block">-->
+           <!---->
+            <!--<h2 class="add__post">Додавання новини <i class="fa fa-plus" aria-hidden="true"></i></h2>-->
+            <!---->
+            <!--<p>Зоображення</p>-->
+            <!--<input type="file">-->
+            <!---->
+            <!--<p>Тема</p>-->
+            <!--<textarea rows="3" ng-model="admPanel.demonstr__subject"></textarea>-->
+            <!---->
+            <!--<p>Категорія</p>-->
+            <!--<select ng-model="admPanel.demonstr__categore">-->
+                <!--<option>Категорія 1</option>-->
+                <!--<option>Категорія 2</option>-->
+                <!--<option>Категорія 3</option>-->
+            <!--</select>-->
+            <!---->
+            <!--<p>Короткий опис</p>-->
+            <!--<textarea rows="5" ng-model="admPanel.demonstr__shortDescript"></textarea>-->
+            <!---->
+            <!--<p>Повний опис</p>-->
+            <!--<textarea rows="8" ng-model="admPanel.demonstr__contentPost"></textarea>-->
+            <!---->
+            <!--<button type="button" ng-click="admPanel.showNewPost();">Demonstrate <i class="fa fa-eye" aria-hidden="true"></i></button>-->
+            <!--<button type="button" ng-click="admPanel.sendNewPost();">Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>-->
+            <!---->
+            <!--<section class="posts clearfix demonstrate__post" ng-click="admPanel.showNewPost();">-->
+                <!--<img src="/src/img/imagePost1.png" alt="Image post">-->
+                <!--<a href="#">{{admPanel.demonstr__categore}}</a>-->
+                <!--<article class="posts__content">-->
+                    <!--<h3>{{admPanel.demonstr__subject}}</h3>-->
+                    <!--<p class="fonts_content">{{admPanel.demonstr__shortDescript}}</p>-->
+                <!--</article>-->
+                <!--<div class="posts__btnLeft">-->
+                    <!--<a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>-->
+                <!--</div>-->
+                <!--<div class="posts__btnLeft">-->
+                    <!--<a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>-->
+                <!--</div>-->
+            <!--</section>-->
+            <!---->
+        <!--</div>-->
+
+            <!--<div class="admin__block">-->
+           <!---->
+            <!--<h2 class="remove__post">Видалення новини <i class="fa fa-trash" aria-hidden="true"></i></h2>-->
+            <!---->
+            <!--<input type="text" placeholder="Тема новини" ng-model="admPanel.searchRemove__post">-->
+            <!--<button type="button" ng-click="admPanel.removePost();">Search</button>-->
+            <!---->
+            <!--<section class="posts clearfix demonstrateRemove__post" ng-click="admPanel.showNewPost();">-->
+                <!--<img src="/src/img/imagePost1.png" alt="Image post">-->
+                <!--<a href="#">{{admPanel.demonstrateRemove__post.category}}</a>-->
+                <!--<article class="posts__content">-->
+                    <!--<h3>{{admPanel.demonstrateRemove__post.title_post}}</h3>-->
+                    <!--<p class="fonts_content">{{admPanel.demonstrateRemove__post.short_description}}</p>-->
+                <!--</article>-->
+                <!--<div class="posts__btnLeft">-->
+                    <!--<a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>-->
+                <!--</div>-->
+                <!--<div class="posts__btnLeft">-->
+                    <!--<a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>-->
+                <!--</div>-->
+            <!--</section>-->
+            <!---->
+            <!--<div class="send__remove" ng-click="admPanel.sendRemovePost($event);">-->
+                <!--<p>Видалити цю новину?</p>-->
+                <!--<input type="button" value="Так">-->
+                <!--<input type="button" value="Ні">-->
+            <!--</div>-->
+            <!---->
+        <!--</div>-->
 
     </div>
 

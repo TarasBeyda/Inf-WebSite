@@ -11,6 +11,7 @@
         display: flex;
         justify-content: space-around;
         width: 400px;
+        font-size: 17px;
     }
     .navig__menu__left {
         left: 0px;
@@ -23,6 +24,8 @@
     .navig__menu__left a,
     .navig__menu__right a {
         color: #FFF;
+        padding: 10px 15px;
+        border-radius: 10px;
     }
     
     
@@ -37,6 +40,9 @@
     .slider_box {
         width: 900px;
     }
+    .slider_box h2 {
+        font-size: 23px;
+    }
     .slider_box > nav > section {
         width: 700px;
         margin: 0 100px;
@@ -45,7 +51,7 @@
         width: 300px;
     }
     .slider_box article {
-        margin: 40px 25px;
+        margin: 28px 25px;
     }
     .slider_box article > p {
         margin: 25px 0;
@@ -73,7 +79,8 @@
         width: 475px;
     }
     .post__comments textarea {
-        width: 944px;
+        width: 80%;
+        margin: 0 10%;
     }
     .post > time {
         padding: 50px 80px 0 80px;

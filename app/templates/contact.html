@@ -3,21 +3,17 @@
     <div class="top">
         <nav class="navig__menu__left">
             <ul class="fonts_content">
-                <li><a href="#!/admin_panel">Меню 1</a></li>
-                <li><a href="#!/post">Меню 2</a></li>
-                <li><a href="#">Меню 3</a></li>
-                <li><a href="#">Меню 4</a></li>
+                <li><a href="#!/">НОВИНИ</a></li>
+                <li><a href="#!/">ОГЛЯДИ</a></li>
             </ul>
         </nav>
 
-        <h1>IНФОТЕХ</h1>
+        <h1 ng-click="home();">IНФОТЕХ</h1>
 
         <nav class="navig__menu__right">
             <ul class="fonts_content">
-                <li><a href="#">Меню 5</a></li>
-                <li><a href="#">Мень 6</a></li>
-                <li><a href="#">Меню 7</a></li>
-                <li><a href="#">Меню 8</a></li>
+                <li><a href="#">СТАТТІ</a></li>
+                <li><a href="#">БЛОГ</a></li>
             </ul>
         </nav>
     </div>
@@ -31,10 +27,10 @@
 
     <nav class="small__menu__nav">
         <ul>
-            <li><a href="#">Меню 1</a></li>
-            <li><a href="#">Меню 2</a></li>
-            <li><a href="#">Меню 3</a></li>
-            <li><a href="#">Меню 4</a></li>
+            <li><a href="#">НОВИНИ</a></li>
+            <li><a href="#">ОГЛЯД</a></li>
+            <li><a href="#">СТАТТІ</a></li>
+            <li><a href="#">БЛОГ</a></li>
         </ul>
     </nav>
 
@@ -49,7 +45,7 @@
        
         <div class="contact__info">
             <h2>Контактна інформація</h2>
-            <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde labore itaque tenetur quae reprehenderit possimus illo! Deserunt, tempora, expedita. Qui sapiente cum sequi nemo hic illo cupiditate autem, nam! Nisi.</p>
+            <p class="fonts_content">З нами можна звязатися через контактну формуб наведену нижче. Ваше повідомлення будена направлено бещпосередньо до нашого контактного центру по всьому світу, який дасть відповідь як тільки в нього буде можливість. Зверніть увагу, що відповідь на Ваше повідомлення може бути відкладена (перенесена) через вихідні та святкові дні (свята)</p>
         </div>
 
         <form action="#" class="contact__form">
@@ -57,7 +53,7 @@
             <input type="text" placeholder="Емайл" ng-model='main.recommendEmail'>
             <input type="text" placeholder="Тематика" ng-model='main.recommendSubject'>
             <textarea rows="4" placeholder="Ваше повідомлення" ng-model='main.recommendMessage'></textarea>
-            <button type="button" ng-click='main.sendRecommendMessageMe();'>Надіслати <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-lg btn-success" ng-click='main.sendRecommendMessageMe();'>Надіслати <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
         </form>
         
     </div>
@@ -68,9 +64,12 @@
 <footer class="footer">
 
     <p>IНФОТЕХ</p>
-    <p class="fonts_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit error a similique autem distinctio laborum, explicabo qui facere cum incidunt hic.</p>
+    <p class="fonts_content">Найсвіжіші новини в світі інформаційних технологій.
+        <br> Всі права захищені!
+        <br> Дозволяється використовувати матеріали з сайту
+        <br> за умов прямого гіперпосилання на даний сайт</p>
     <p class="fonts_content"><i class="fa fa-phone" aria-hidden="true"></i>+38 093 692 11 48</p>
-    <p class="fonts_content"><i class="fa fa-envelope" aria-hidden="true">tarasbeyda@gmail.com</i></p>
+    <p class="fonts_content"><i class="fa fa-envelope" aria-hidden="true"></i>tarasbeyda@gmail.com</p>
 
     <div class="footer__links">
         <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -81,7 +80,7 @@
 
     <div class="demarcation">
         <h3>
-            <a href="#"><i class="fa fa-arrow-up fa-2x" aria-hidden="true"></i></a>
+            <a ng-click="scrollTop();" href="javascript:;"><i class="fa fa-arrow-up fa-2x" aria-hidden="true"></i></a>
         </h3>
     </div>
 

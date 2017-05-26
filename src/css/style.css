@@ -49,13 +49,26 @@ h3 {
     margin: 0;
     display: inline-block;
     cursor: pointer;
+    color: white;
+    font-family: 'Helvetica Neue';
+    font-weight: 900;
+}
+
+.head .top nav {
+    font-family: 'Helvetica Neue';
+    font-weight: 900;
 }
 
 
 /*Slider*/
 .slider {
     display: none;
-    margin: 50px 0 0 0;
+    background: url(../img/slider_background.jpg) no-repeat;
+    background-size: cover;
+    margin: 0 !important;
+}
+.slider_box {
+    padding-top: 70px !important;
 }
 .slider * {
     margin: 0;
@@ -72,6 +85,7 @@ h3 {
     background: darkred;
     border: 0px solid #000;
     border-radius: 12px;
+    background: white;
 }
 .slider_box article {
     text-align: center;
@@ -88,6 +102,7 @@ h3 {
 }
 .slider_box button a {
     color: #2d8cd3;
+    text-decoration: none;
 }
 .slider_box a {
     padding: 12px 18px;
@@ -115,32 +130,34 @@ h3 {
     color: #65ade3;
     border: 0px solid #000;
     border-radius: 100%;
-    width: 47px;
-    height: 50px;
+    width: 90px;
+    height: 83px;
 }
 .nav_slider > div > i {
-    vertical-align: -24px;
+    vertical-align: -39px;
 }
 .left_nav {
     text-align: right;
     float: left;
-    margin: 0 0 0 -17px;
+    margin: 0 0 0 -50px;
+    cursor: pointer;
 }
 .left_nav > i {
-    margin: 0 7px 0 0;
+    margin: 0 15px 0 0;
 }
 .right_nav {
     text-align: left;
     float: right;
-    margin: 0 -17px 0 0;
+    margin: 0 -50px 0 0;
+    cursor: pointer;
 }
 .right_nav > i {
-    margin: 0 0 0 7px;
+    margin: 0 0 0 15px;
 }
 .nav_slider {
     overflow: hidden;
     position: relative;
-    top: -157px;
+    top: -157px !important;
 }
 
 
@@ -153,7 +170,7 @@ h3 {
 
 /*Small navigation menu*/
 .small__menu {
-    border-bottom: 5px double #cfcfcf;
+    border-bottom: none !important;
     margin: 10px 0;
     height: 40px;
     text-align: center;
@@ -185,7 +202,7 @@ h3 {
 
 /*Wrapper*/
 .wrapper {
-    margin-top: 100px;
+    margin-top: 60px;
     position: relative;
     z-index: 1;
 }
@@ -193,13 +210,13 @@ h3 {
 
 /*Demarcation*/
 .demarcation {
-    border-bottom: 1px solid #cfcfcf;   
-    margin: 0px 0 43px;
+    border-bottom: 1px solid #cfcfcf;
+    margin: 40px 0 10px;
     text-align: center;
-    padding: 35px 0 0;
+    padding: 67px 0 0;
 }
 .demarcation h3 {
-    margin: 0 0 -22px;
+    margin: 0 0 -26px;
 }
 .demarcation h3 a {
     color: #000;
@@ -210,6 +227,7 @@ h3 {
     width: 150px;
     padding: 15px 0;
     margin: auto;
+    text-decoration: none;
 }
 
 
@@ -220,6 +238,8 @@ h3 {
     margin: 10px auto;
     width: 270px;
     background: #FFF;
+    position: relative;
+    padding-bottom: 30px;
 }
 .posts > img {
     width: 100%;
@@ -283,23 +303,27 @@ h3 {
 
 
 /*Only post*/
+.post {
+    padding-bottom: 50px !important;
+}
 .post,
 .post__comments {
     position: relative;
     width: 280px;
     margin: auto;
-    background: #FFF;
+    background: floralwhite;
+    box-shadow: -25px 0 25px -25px lightgrey, 25px 0 25px -25px lightgrey
 }
 .post > a {
     position: absolute;
     right: 0px;
     top: 10px;
-    padding: 7px;
+    padding: 7px 7px 7px 15px;
     color: #FFF;
     background: #1c8ee3;
     border: 0px solid #000;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
 }
 .post img {
     width: 266px;
@@ -321,6 +345,7 @@ h3 {
 .post__content > p {
     margin-bottom: 10px;
     color: #333;
+    line-height: 29px;
 }
 .post > .hashtag {
     color: rgba(0,0,0,0.3);
@@ -331,21 +356,22 @@ h3 {
     margin-right: 5px;
 }
 .post__comments {
-    margin: 30px auto;
+    margin: -62px auto 75px;
+    padding: 70px 0 50px;
 }
 .post__comments textarea {
     width: 274px;
 }
 .post__comments button {
     float: right;
-    margin: 7px 7px 20px 0;
+    margin: 7px 10% 20px 0;
     padding: 5px;
 }
 .amount__comments {
     display: block;
     background: url(/src/img/bgTopMenu.png) no-repeat 50% 50%;
     background-size: cover;
-    padding: 10px 0 10px 7px;
+    padding: 10px 80px 10px 80px;
     color: #FFF;
 }
 .comments {
@@ -357,7 +383,8 @@ h3 {
     margin-right: 7px;
 }
 .comments div {
-    margin: 7px 7px 14px 7px;
+    width: 100%;
+    margin: 7px 0 14px 0 !important;
     padding-bottom: 26px;
     line-height: 20px;
     position: relative;
@@ -376,7 +403,9 @@ h3 {
 .contact {
     width: 280px;
     margin: auto;
-    background: #FFF;
+    background: floralwhite;
+    box-shadow: 0 0 20px lightgrey;
+    margin-bottom: 50px;
 }
 .contact__info {
     margin: 0 20px;
@@ -430,18 +459,19 @@ h3 {
 
 /*Categories*/  
 .categories {
-    margin: 50px 0;
+    margin: 0 0 50px;
     background: url(../img/bgBox.png) no-repeat 50% 50%;
     background-size: cover;
     position: relative;
     z-index: -2;
 }
 .categ__box:last-child {
-    padding-bottom: 25px;
+    height: 100%;
 }
 .categ__box {
     margin: 10px auto;
     width: 270px;
+    height: 100%;
 }
 .categ__box img {
     position: relative;
@@ -450,10 +480,18 @@ h3 {
     width: 100%;
     border-radius: 12px;
 }
+.categ__box:hover {
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 50px #000000;
+}
 .categ__box__name h2 {
     color: #fff;
     float: right;
     margin: -40px 20px 0 0;
+}
+.categ__main {
+    padding-bottom: 45px !important;
 }
 
 
@@ -463,7 +501,12 @@ h3 {
 }
 .popular__posts,
 .most__commented {
-    margin: 50px auto;
+    margin: 30px auto;
+    width: 40% !important;
+}
+.popular__posts h3,
+.most__commented h3 {
+    font-size: 30px !important;
 }
 .bound {
     border: 1px solid #cfcfcf;
@@ -472,7 +515,7 @@ h3 {
 .popular__box,
 .mostComment__box {
     margin: 0 auto 30px;
-    width: 270px;
+    width: 100% !important;
 }
 .popular__box p,
 .mostComment__box p {
@@ -489,10 +532,11 @@ h3 {
 
 /*Subscribe*/
 .subscribe {
-    margin: 50px 0;
+    margin: 50px 0 0;
     background: url(../img/bgBox.png) no-repeat 50% 50%;
     background-size: cover;
     text-align: center;
+    padding: 30px 0 45px;
 }
 .subscribe p {
     color: #fff;
@@ -500,6 +544,7 @@ h3 {
     text-align: center;
     padding-top: 15px;
     margin: 0 0 10px;
+    font-size: 25px;
 }
 .subscribe input[type="text"] {
     border: 0px solid #000;
@@ -516,19 +561,34 @@ h3 {
     padding: 7px;
     margin: 10px 0 15px;
 }
+.subscribe input[type="text"] {
+    padding: 12px 25px 13px 25px;
+    font-style: italic;
+    margin: 15px 12px 0 0px;
+}
 
 
 /*Footer*/
 .footer {
-    text-align: center;
-    color: #777;
+    text-align: right;
+    color: white;
+    background: url("../img/footer_background.jpg") no-repeat;
+    background-size: cover;
+    padding: 70px 0 17px;
+    background-position: 32% 83%;
+}
+.footer p {
+    margin-right: 30px;
+    font-size: 17px;
+    color: white;
 }
 .footer p:first-child {
     font-family: "Intro";
-    font-size: 28px;
+    font-size: 32px;
+    margin-top: 25px;
 }
 .footer > .demarcation h3 {
-    margin: 0 0 -16px;
+    margin: 0 0 -23px;
 }
 .footer > .demarcation a {
     padding: 0;
@@ -536,6 +596,17 @@ h3 {
 .footer > .demarcation i {
     color: #cfcfcf;
     vertical-align: -5px;
+}
+.footer .fonts_content .fa {
+    margin-right: 5px;
+}
+.footer .footer__links {
+    margin-right: 30px;
+}
+.footer .footer__links .fa {
+    font-size: 25px;
+    margin-right: 15px;
+    cursor: pointer;
 }
 
 
@@ -593,7 +664,7 @@ h3 {
     background-size: cover;
     color: #FFF;
     width: 320px;
-    height: 130px;
+    height: 153px;
 }
 .controll__signIn p {
     margin: 10px 0 10px 25px; 
@@ -603,8 +674,8 @@ h3 {
 }
 .controll__signIn button {
     position: absolute;
-    right: 30px;
-    top: 38px;
+    right: 20px;
+    top: 47px;
 }
 
 .opacity-loader {
@@ -640,6 +711,53 @@ h3 {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.pagination {
+    position: relative;
+    left: 50%;
+    transform: translatex(-50%);
+    margin: 30px 0 40px !important;
+}
+
+@media only screen and (max-width: 450px) {
+    .pagination-lg>li>a {
+        padding: 10px !important;
+    }
+}
+
+.navig__menu__left a:hover,
+.navig__menu__right a:hover {
+    background: #222;
+    text-decoration: none;
+    color: white;
+}
+
+.container__posts__btn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.dem__news {
+    padding-top: 0;
+    margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+    .popular__posts, .most__commented {
+        margin: 30px auto;
+        width: 90% !important;
+    }
+}
+
+.send_admin {
+    display: inherit !important;
+    margin: 20px 0 10px;
+}
+
+.review_admin {
+    margin-top: 8px;
 }
 
 

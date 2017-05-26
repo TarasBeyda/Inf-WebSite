@@ -1,5 +1,12 @@
 var app = angular.module('Controllers', ['ui.bootstrap'])
 
+    .config(['uibPaginationConfig',
+    function(uibPaginationConfig){
+        uibPaginationConfig.previousText="‹";
+        uibPaginationConfig.nextText="›";
+        uibPaginationConfig.firstText="«";
+        uibPaginationConfig.lastText="»";}])
+
     .controller('mainPageCtrl', mainPageCtrl)
     .controller('admPageCtrl', admPageCtrl)
     mainPageCtrl.$inject = ['$scope', 'mainPageFact', '$http', "$location", "PaginationsService", "SelectPost"]
@@ -17,7 +24,7 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
             if ($('#smallMenuBtn').hasClass('active')) {
                 $('#smallMenuBtn:hover').css('cursor', 'default');
                 $('.small__menu').animate({
-                    height: '200px'
+                    height: '215px'
                 }, 1000);
                 $('#smallMenuBtn').animate({
                     opacity: '0'
@@ -215,6 +222,7 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
 
     vm.pageChanged = function(currentPage) {
         $('.opacity-loader').show();
+        $("html, body").animate({ scrollTop: 560 }, "slow");
         var data = ({
             currentPage: vm.currentPage
         });
@@ -232,25 +240,30 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
         }, 1000)
     };
 
+    vm.scrollTop = function () {
+        $('html,body').animate({ scrollTop: 0 }, "slow");
+    };
+
+    vm.home = function () {
+        $location.path('/');
+    };
+
     vm.selectPost = function ($index) {
-        $('.opacity-loader').show();
         vm.selectPost = $index;
         var data = ({
             selectPost: ((vm.currentPage-1)*10)+vm.selectPost-vm.currentPage
         });
-        setTimeout(function () {
-            SelectPost.postSelectId(data)
-                .then(
-                    function (response) {
-                        $('.opacity-loader').hide();
-                        $location.path('/post');
-                        mainPageFact.contentActivePost = response.Data;
-                    },
-                    function (errResponse) {
-                        console.log("Error select post!");
-                    }
-                )
-        }, 1000)
+        SelectPost.postSelectId(data)
+            .then(
+                function (response) {
+                    $location.path('/post');
+                    mainPageFact.contentActivePost = response.Data;
+                    vm.scrollTop();
+                },
+                function (errResponse) {
+                    console.log("Error select post!");
+                }
+            )
     };
 
     vm.init = function () {
@@ -337,6 +350,7 @@ function admPageCtrl(mainPageFact, $http) {
         $http.post('http://localhost:3000/sendNewPost', this.sendNewDemonstratePost)
             .then((res) => {
                 console.log('Success sendNewPost', res);
+                $('.demonstrate__post').hide();
             }), function(err) {
                 console.log('Error sendNewPost', err);        
             };
@@ -345,11 +359,11 @@ function admPageCtrl(mainPageFact, $http) {
     
     /*Show demonstrate new post*/
     this.showNewPost = function() {
-        var heightDemonstr = parseInt($('.demonstrate__post').css('height'))+460+'px';
+        // var heightDemonstr = parseInt($('.demonstrate__post').css('height'))+460+'px';
         $('.demonstrate__post').show();
-        $('.admin__wrapper div:first-child').animate({
-            height: heightDemonstr
-        }, 1000);
+        // $('.admin__wrapper div:first-child').animate({
+        //     height: heightDemonstr
+        // }, 1000);
     };
     
     

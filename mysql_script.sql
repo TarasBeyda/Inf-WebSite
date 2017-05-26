@@ -76,3 +76,17 @@ insert into Admin(login_adm, pass_adm) values
 select * from Admin;
 
 select * from Posts order by id_post desc limit 9, 9;
+
+
+
+-- sudo nautilus /etc/mysql/mysql.conf.d/mysqld.cnf
+
+-- [mysqld]
+-- character-set-server=utf8
+-- collation-server=utf8_general_ci
+
+sudo /etc/init.d/mysql restart
+
+
+-- SHOW VARIABLES LIKE 'char%';
+-- SET names utf8;
