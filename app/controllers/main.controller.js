@@ -9,10 +9,10 @@ var app = angular.module('Controllers', ['ui.bootstrap'])
 
     .controller('mainPageCtrl', mainPageCtrl)
     .controller('admPageCtrl', admPageCtrl)
-    mainPageCtrl.$inject = ['$scope', 'mainPageFact', '$http', "$location", "PaginationsService", "SelectPost"]
+    mainPageCtrl.$inject = ['$scope', 'mainPageFact', '$http', "$location", "PaginationsService", "SelectPost", "CommentsPostService", 'SearchPostsService', 'PostCategoryService']
     admPageCtrl.$inject = ['mainPageFact', '$http']
 
-function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService, SelectPost) {
+function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService, SelectPost, CommentsPostService, SearchPostsService, PostCategoryService) {
 
     $('.opacity-loader').show();
     
@@ -202,18 +202,98 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
     var vm = $scope;
     vm.paginations;
 
-    PaginationsService.getPaginationsStart()
-        .then(
-            function (response) {
-                setTimeout(function () {
-                    $('.opacity-loader').hide();
-                }, 1000);
-                vm.paginations = response.Data;
-            },
-            function (errResponse) {
-                console.log("Error get paginations service on paginationsCtrl");
-            }
-        )
+    if ($location.$$path == '/') {
+
+        PaginationsService.getPaginationsStart()
+            .then(
+                function (response) {
+                    setTimeout(function () {
+                        $('.opacity-loader').hide();
+                    }, 1000);
+                    vm.paginations = response.Data;
+                },
+                function (errResponse) {
+                    console.log("Error get paginations service on paginationsCtrl");
+                }
+            )
+
+    }
+
+    if ($location.$$path == '/news') {
+        var data = ({
+            category: 'новини'
+        });
+        setTimeout(function () {
+            PostCategoryService.postCategory(data)
+                .then(
+                    function (response) {
+                        $('.opacity-loader').hide();
+                        vm.paginations = response.Data;
+                        console.log(response);
+                    },
+                    function (errResponse) {
+                        console.log("Error category!");
+                    }
+                )
+        }, 1000)
+    }
+
+    if ($location.$$path == '/reviews') {
+        var data = ({
+            category: 'огляди'
+        });
+        setTimeout(function () {
+            PostCategoryService.postCategory(data)
+                .then(
+                    function (response) {
+                        $('.opacity-loader').hide();
+                        vm.paginations = response.Data;
+                        console.log(response);
+                    },
+                    function (errResponse) {
+                        console.log("Error category!");
+                    }
+                )
+        }, 1000)
+    }
+
+    if ($location.$$path == '/articles') {
+        var data = ({
+            category: 'статті'
+        });
+        setTimeout(function () {
+            PostCategoryService.postCategory(data)
+                .then(
+                    function (response) {
+                        $('.opacity-loader').hide();
+                        vm.paginations = response.Data;
+                        console.log(response);
+                    },
+                    function (errResponse) {
+                        console.log("Error category!");
+                    }
+                )
+        }, 1000)
+    }
+
+    if ($location.$$path == '/blogs') {
+        var data = ({
+            category: 'блог'
+        });
+        setTimeout(function () {
+            PostCategoryService.postCategory(data)
+                .then(
+                    function (response) {
+                        $('.opacity-loader').hide();
+                        vm.paginations = response.Data;
+                        console.log(response);
+                    },
+                    function (errResponse) {
+                        console.log("Error category!");
+                    }
+                )
+        }, 1000)
+    }
 
     vm.totalItems = 64;
     vm.currentPage = 1;
@@ -239,6 +319,42 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
                 )
         }, 1000)
     };
+
+    vm.gotoAgreements = function () {
+        $location.path('/agreements');
+        $('html,body').animate({ scrollTop: 0 }, "slow")
+    };
+    vm.gotoContact = function () {
+        $location.path('/contact');
+        $('html,body').animate({ scrollTop: 0 }, "slow")
+    };
+    vm.gotoSearch = function () {
+        $location.path('/search');
+        $('html,body').animate({ scrollTop: 0 }, "slow")
+    };
+
+    vm.search = function () {
+        $('.opacity-loader').show();
+        var data = ({
+            inputSearch: vm.inputSearch
+        });
+        setTimeout(function () {
+            SearchPostsService.postSearch(data)
+                .then(
+                    function (response) {
+                        $('.opacity-loader').hide();
+                        vm.searchResult = response.Data;
+                        if (vm.searchResult !== "Error comments post") {
+                            $('.search__image').hide();
+                        }
+                        console.log(vm.searchResult);
+                    },
+                    function (errResponse) {
+                        console.log("Error search result");
+                    }
+                )
+        }, 1000)
+    }
 
     vm.scrollTop = function () {
         $('html,body').animate({ scrollTop: 0 }, "slow");
@@ -266,10 +382,45 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
             )
     };
 
+    vm.addNewComments = function () {
+        var data = ({
+            newComments: vm.new_comment,
+            id: vm.activePost.id_post
+        });
+        CommentsPostService.postSendNewComments(data)
+            .then(
+                function (response) {
+                    console.log(response);
+                },
+                function (errResponse) {
+                    console.log('Erro add new comments');
+                }
+            )
+    };
+
     vm.init = function () {
         if ($location.$$path == '/post') {
             vm.activePost = mainPageFact.contentActivePost[0];
             console.log(vm.activePost);
+
+            var data = ({
+                IdPostComments: vm.activePost.id_post
+            });
+            CommentsPostService.postCommentsPost(data)
+                .then(
+                    function (response) {
+                        $('.opacity-loader').hide();
+                        vm.commentsWithPost = response.Data;
+                        vm.amountComments = vm.commentsWithPost.length;
+                        if (vm.commentsWithPost == "Error comments post") {
+                            vm.amountComments = 0;
+                        }
+                        console.log(vm.commentsWithPost);
+                    },
+                    function (errResponse) {
+                        console.log("Error comments with post");
+                    }
+                )
         }
     };
 

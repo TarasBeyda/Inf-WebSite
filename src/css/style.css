@@ -472,6 +472,7 @@ h3 {
     margin: 10px auto;
     width: 270px;
     height: 100%;
+    cursor: pointer;
 }
 .categ__box img {
     position: relative;
@@ -760,5 +761,19 @@ h3 {
     margin-top: 8px;
 }
 
+.search-result {
+    min-height: 500px;
+}
 
+.search__image {
+    vertical-align: middle;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 50px 0
+}
+
+.categ__href {
+    margin: 40px 0 50px !important;
+}
 

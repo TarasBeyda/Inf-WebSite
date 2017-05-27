@@ -54,19 +54,14 @@
     
     <div class="post__comments clearfix fonts_content">
 
-        <p class="amount__comments">2 коментарів</p>
-        <textarea rows="5" placeholder="Ваш коментар..."></textarea>
-        <button type="button" class="btn btn-md btn-success">Надіслати <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        <p class="amount__comments">Коментарів: {{amountComments}}</p>
+        <textarea rows="5" ng-model="new_comment" placeholder="Ваш коментар..."></textarea>
+        <button type="button" ng-click="addNewComments();" class="btn btn-md btn-success">Надіслати <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 
         <div class="comments">
-            <div>
+            <div ng-repeat="key in commentsWithPost">
                 <i class="fa fa-user fa-3x" aria-hidden="true"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo rerum quidem laboriosam, voluptatem itaque autem facere! Dolore ducimus consequatur sapiente neque.</p>
-                <time class="date fonts_content">August 21 2016</time>
-            </div>
-            <div>
-                <i class="fa fa-user fa-3x" aria-hidden="true"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores nam numquam nostrum harum magni velit deserunt voluptate eveniet, accusamus, reprehenderit quas labore ea repellat atque debitis vitae quos explicabo praesentium.</p>
+                <p>{{key.text_coments}}</p>
                 <time class="date fonts_content">August 21 2016</time>
             </div>
         </div>

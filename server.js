@@ -140,6 +140,24 @@ app.post("/api/paginations/change", function (req, res) {
         }
     })
 });
+app.post("/api/category/paginations/change", function (req, res) {
+    var currentPage = (req.body.currentPage-1)*9;
+    var category = req.body.category;
+    var data = {
+        "Data": ""
+    };
+
+    connection.query("select * from Posts where category like ? order by id_post desc limit ?, ?", ['%' + category + '%', currentPage, 9], function (err, rows) {
+        if (err) throw err;
+        if(rows.length != 0){
+            data["Data"] = rows;
+            res.json(data);
+        }else{
+            data["Data"] = "Error post paginations";
+            res.json(data);
+        }
+    })
+});
 app.post("/api/select-post", function (req, res) {
     var selectPost = req.body.selectPost+1;
     var data = {
@@ -153,6 +171,75 @@ app.post("/api/select-post", function (req, res) {
             res.json(data);
         }else{
             data["Data"] = "Error post paginations";
+            res.json(data);
+        }
+    })
+});
+app.post("/api/category/post", function (req, res) {
+    var category = req.body.category;
+    var data = {
+        "Data": ""
+    };
+
+    connection.query("select * from Posts where category like ? order by id_post desc limit 0,9", ['%' + category + '%'],function (err, rows) {
+        if (err) throw err;
+        if (rows.length != 0) {
+            data["Data"] = rows;
+            res.json(data);
+        } else {
+            data["Data"] = "No data found..";
+            res.json(data);
+        }
+    })
+});
+app.post("/api/post/comments", function (req, res) {
+    var commentsPost = req.body.IdPostComments;
+    var data = {
+        "Data": ""
+    };
+
+    connection.query("select * from Comments where Comments.post_comments = ?;", commentsPost, function (err, rows) {
+        if (err) throw err;
+        if(rows.length != 0){
+            data["Data"] = rows;
+            res.json(data);
+        }else{
+            data["Data"] = "Error comments post";
+            res.json(data);
+        }
+    })
+});
+app.post("/api/search/posts", function (req, res) {
+    var inputSearch = req.body.inputSearch;
+    var data = {
+        "Data": ""
+    };
+
+    connection.query("select * from Posts where title_post like ?", ['%' + inputSearch + '%'], function (err, rows) {
+        if (err) throw err;
+        if(rows.length != 0){
+            data["Data"] = rows;
+            res.json(data);
+        }else{
+            data["Data"] = "Error comments post";
+            res.json(data);
+        }
+    })
+});
+app.post("/api/post/add/comment", function (req, res) {
+    var newComments = req.body.newComments;
+    var id = req.body.id;
+    var data = {
+        "Data": ""
+    };
+
+    connection.query("insert into Comments(text_coments, post_comments) values(?,?)", [newComments, id], function (err, rows) {
+        if (err) throw err;
+        if(rows.length != 0){
+            data["Data"] = rows;
+            res.json(data);
+        }else{
+            data["Data"] = "Error comments post";
             res.json(data);
         }
     })
