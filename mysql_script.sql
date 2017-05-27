@@ -7,8 +7,11 @@ create table if not exists Posts(
     title_post varchar(100) not null,
     content_post text(2500) not null,
     short_description varchar(255) not null,
-    category varchar(50) not null
+    category varchar(50) not null,
+    admin_posts int,
+    constraint tb_fk foreign key (admin_posts) references Admin(id_adm)
 );
+
 
 insert into Posts(title_post, content_post, short_description, category) values 
 ('Заголовок до певної новини 1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui distinctio suscipit, alias laborum at officiis repellat. Nobis velit reprehenderit assumenda earum...', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui distinctio suscipit, alias laborum at officiis repellat. Nobis velit reprehenderit assumenda earum.', 'Категорія 1'),
@@ -70,7 +73,9 @@ select * from Posts where Posts.id_post between 5 and 9;
 create table if not exists Admin(
 	id_adm int primary key auto_increment,
     login_adm varchar(30) not null,
-    pass_adm varchar(30) not null
+    pass_adm varchar(30) not null,
+    name_adm varchar(30) not null,
+    surname_adm varchar(30) not null
 );
 
 create table if not exists Comments(
@@ -91,12 +96,12 @@ select * from Comments where Comments.post_comments = 3;
 
 select * from Posts where title_post like '%заг%';
 
-insert into Admin(login_adm, pass_adm) values 
-('Taras', '1111');
+insert into Admin(login_adm, pass_adm, name_adm, surname_adm) values 
+('T', '1', 'Taras', 'Beyda');
 
 select * from Admin;
 
-select * from Posts order by id_post desc limit 0, 9;
+select * from Posts where category like '%огляди%' order by id_post desc limit 0, 9;
 
 
 

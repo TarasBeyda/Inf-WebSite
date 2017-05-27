@@ -61,14 +61,14 @@
                 <img src="/src/img/imagePost1.png" alt="Image post">
                 <a href="#">{{key.category}}</a>
                 <article class="posts__content">
-                    <h3 ng-click="selectPost($index);">{{key.title_post}}</h3>
+                    <h3 ng-click="selectPostTitle(key.title_post);" ng-model="searchPostTitle">{{key.title_post}}</h3>
                     <p class="fonts_content">{{key.short_description}}</p>
                 </article>
                 <div class="container__posts__btn">
                     <div class="posts__btnLeft">
                         <a href="#"><img src="/src/img/bubble.svg" alt="comments"></a>
                     </div>
-                    <div class="posts__btnLeft" ng-click="selectPost($index)">
+                    <div class="posts__btnLeft" ng-click="selectPostTitle()">
                         <a href="#"><img src="/src/img/Arrow_Right.svg" alt="arrow right"></a>
                     </div>
                 </div>

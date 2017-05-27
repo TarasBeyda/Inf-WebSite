@@ -25,6 +25,18 @@ app.service("PaginationsService", ["$http", "$q", function ($http, $q) {
                         return $q.reject(errRes);
                     }
                 )
+        },
+        postCategoryPaginationsChange: function (currentPage) {
+            return $http.post("/api/category/paginations/change", currentPage)
+                .then(
+                    function (res) {
+                        return res.data;
+                    },
+                    function (errRes) {
+                        console.log("Error paginations change!");
+                        return $q.reject(errRes);
+                    }
+                )
         }
     }
 }]);

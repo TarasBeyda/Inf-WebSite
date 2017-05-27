@@ -29,6 +29,7 @@ function mainPageFact() {
     var demonstrateRemove__post;
 
     var contentActivePost;
+    var titlePost;
     
     return { 
         recommendMessageMe: recommendMessageMe,
@@ -44,7 +45,8 @@ function mainPageFact() {
         searchRemove__post: searchRemove__post,
         demonstrateRemove__post: demonstrateRemove__post,
 
-        contentActivePost: contentActivePost
+        contentActivePost: contentActivePost,
+        titlePost: titlePost
     };
     
 };

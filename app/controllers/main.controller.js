@@ -202,6 +202,10 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
     var vm = $scope;
     vm.paginations;
 
+    setTimeout(function () {
+        $('.opacity-loader').hide();
+    }, 1000);
+
     if ($location.$$path == '/') {
 
         PaginationsService.getPaginationsStart()
@@ -215,7 +219,27 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
                 function (errResponse) {
                     console.log("Error get paginations service on paginationsCtrl");
                 }
-            )
+            );
+
+        vm.pageChanged = function(currentPage) {
+            $('.opacity-loader').show();
+            $("html, body").animate({ scrollTop: 560 }, "slow");
+            var data = ({
+                currentPage: vm.currentPage
+            });
+            setTimeout(function () {
+                PaginationsService.postPaginationsChange(data)
+                    .then(
+                        function (response) {
+                            $('.opacity-loader').hide();
+                            vm.paginations = response.Data;
+                        },
+                        function (errResponse) {
+                            console.log("Error get paginations service on paginationsCtrl");
+                        }
+                    )
+            }, 1000)
+        };
 
     }
 
@@ -235,7 +259,29 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
                         console.log("Error category!");
                     }
                 )
-        }, 1000)
+        }, 1000);
+
+        vm.pageChanged = function(currentPage) {
+            $('.opacity-loader').show();
+            $("html, body").animate({ scrollTop: 560 }, "slow");
+            var data = ({
+                currentPage: vm.currentPage,
+                category: 'новини'
+            });
+            setTimeout(function () {
+                PaginationsService.postCategoryPaginationsChange(data)
+                    .then(
+                        function (response) {
+                            $('.opacity-loader').hide();
+                            vm.paginations = response.Data;
+                        },
+                        function (errResponse) {
+                            console.log("Error get paginations service on paginationsCtrl");
+                        }
+                    )
+            }, 1000)
+        };
+
     }
 
     if ($location.$$path == '/reviews') {
@@ -254,7 +300,29 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
                         console.log("Error category!");
                     }
                 )
-        }, 1000)
+        }, 1000);
+
+        vm.pageChanged = function(currentPage) {
+            $('.opacity-loader').show();
+            $("html, body").animate({ scrollTop: 560 }, "slow");
+            var data = ({
+                currentPage: vm.currentPage,
+                category: 'огляди'
+            });
+            setTimeout(function () {
+                PaginationsService.postCategoryPaginationsChange(data)
+                    .then(
+                        function (response) {
+                            $('.opacity-loader').hide();
+                            vm.paginations = response.Data;
+                        },
+                        function (errResponse) {
+                            console.log("Error get paginations service on paginationsCtrl");
+                        }
+                    )
+            }, 1000)
+        };
+
     }
 
     if ($location.$$path == '/articles') {
@@ -273,7 +341,29 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
                         console.log("Error category!");
                     }
                 )
-        }, 1000)
+        }, 1000);
+
+        vm.pageChanged = function(currentPage) {
+            $('.opacity-loader').show();
+            $("html, body").animate({ scrollTop: 560 }, "slow");
+            var data = ({
+                currentPage: vm.currentPage,
+                category: 'статті'
+            });
+            setTimeout(function () {
+                PaginationsService.postCategoryPaginationsChange(data)
+                    .then(
+                        function (response) {
+                            $('.opacity-loader').hide();
+                            vm.paginations = response.Data;
+                        },
+                        function (errResponse) {
+                            console.log("Error get paginations service on paginationsCtrl");
+                        }
+                    )
+            }, 1000)
+        };
+
     }
 
     if ($location.$$path == '/blogs') {
@@ -292,33 +382,35 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
                         console.log("Error category!");
                     }
                 )
-        }, 1000)
+        }, 1000);
+
+        vm.pageChanged = function(currentPage) {
+            $('.opacity-loader').show();
+            $("html, body").animate({ scrollTop: 560 }, "slow");
+            var data = ({
+                currentPage: vm.currentPage,
+                category: 'блог'
+            });
+            setTimeout(function () {
+                PaginationsService.postCategoryPaginationsChange(data)
+                    .then(
+                        function (response) {
+                            $('.opacity-loader').hide();
+                            vm.paginations = response.Data;
+                        },
+                        function (errResponse) {
+                            console.log("Error get paginations service on paginationsCtrl");
+                        }
+                    )
+            }, 1000)
+        };
+
     }
 
     vm.totalItems = 64;
     vm.currentPage = 1;
     vm.itemsPerPage = 10;
     vm.maxSize = 5;
-
-    vm.pageChanged = function(currentPage) {
-        $('.opacity-loader').show();
-        $("html, body").animate({ scrollTop: 560 }, "slow");
-        var data = ({
-            currentPage: vm.currentPage
-        });
-        setTimeout(function () {
-            PaginationsService.postPaginationsChange(data)
-                .then(
-                    function (response) {
-                        $('.opacity-loader').hide();
-                        vm.paginations = response.Data;
-                    },
-                    function (errResponse) {
-                        console.log("Error get paginations service on paginationsCtrl");
-                    }
-                )
-        }, 1000)
-    };
 
     vm.gotoAgreements = function () {
         $location.path('/agreements');
@@ -394,6 +486,25 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
                 },
                 function (errResponse) {
                     console.log('Erro add new comments');
+                }
+            )
+    };
+
+
+
+    vm.selectPostTitle = function (searchPostTitle) {
+        var data = ({
+            titlePost: searchPostTitle
+        });
+        SelectPost.postSelectToTitle(data)
+            .then(
+                function (response) {
+                    $location.path('/post');
+                    mainPageFact.contentActivePost = response.Data;
+                    vm.scrollTop();
+                },
+                function (errResponse) {
+                    console.log("Error select post!");
                 }
             )
     };

@@ -175,6 +175,23 @@ app.post("/api/select-post", function (req, res) {
         }
     })
 });
+app.post("/api/search/select-post", function (req, res) {
+    var titlePost = req.body.titlePost;
+    var data = {
+        "Data": ""
+    };
+
+    connection.query("select * from Posts where title_post like ?", ['%' + titlePost + '%'], function (err, rows) {
+        if (err) throw err;
+        if(rows.length != 0){
+            data["Data"] = rows;
+            res.json(data);
+        }else{
+            data["Data"] = "Error post paginations";
+            res.json(data);
+        }
+    })
+});
 app.post("/api/category/post", function (req, res) {
     var category = req.body.category;
     var data = {
