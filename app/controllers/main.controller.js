@@ -243,6 +243,37 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
 
     }
 
+    if ($location.$$path == '/agreements') {
+        var data = ({
+            agreementsSend1: 'AgreementsTitle',
+            agreementsSend2: 'AgreementsItem'
+        });
+        setTimeout(function () {
+            PostCategoryService.postAgreements(data)
+                .then(
+                    function (response) {
+                        $('.opacity-loader').hide();
+                        vm.agreements = response.Data;
+                        console.log(response.Data);
+
+                        vm.oneTitle = vm.agreements[0].title;
+                        console.log(vm.oneTitle);
+
+                        vm.oneTitleItem = [
+                            {'one': vm.agreements[0].item},
+                            {'two': vm.agreements[1].item},
+                            {'three': vm.agreements[2].item}
+                        ];
+                        console.log(vm.oneTitleItem);
+
+                    },
+                    function (errResponse) {
+                        console.log("Error category!");
+                    }
+                )
+        }, 1000);
+    }
+
     if ($location.$$path == '/news') {
         var data = ({
             category: 'новини'
@@ -406,6 +437,8 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
         };
 
     }
+
+
 
     vm.totalItems = 64;
     vm.currentPage = 1;

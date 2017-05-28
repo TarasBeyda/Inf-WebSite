@@ -777,3 +777,7 @@ h3 {
     margin: 40px 0 50px !important;
 }
 
+.popular-post-title {
+    font-size: 17px !important;
+    margin-bottom: 2px !important;
+}

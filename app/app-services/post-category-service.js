@@ -13,6 +13,18 @@ app.service("PostCategoryService", ["$http", "$q", function ($http, $q) {
                         return $q.reject(errRes);
                     }
                 )
+        },
+        postAgreements: function (currentPage) {
+            return $http.post("/api/agreements", currentPage)
+                .then(
+                    function (res) {
+                        return res.data;
+                    },
+                    function (errRes) {
+                        console.log("Error post category!");
+                        return $q.reject(errRes);
+                    }
+                )
         }
     }
 }]);

@@ -85,6 +85,42 @@ create table if not exists Comments(
     constraint tb_fk foreign key (post_comments) references Posts(id_post)
 );
 
+create table if not exists InformationCategory(
+	id_inf int primary key auto_increment,
+    categ_inf varchar(20) not null,
+    admin_inf int,
+    constraint adminf_fk foreign key (admin_inf) references Admin(id_adm)
+);
+
+insert into AgreementsTitle(title, admin_agree_title) values
+('Title 1', 1),
+('Title 2', 1),
+('Title 3', 1);
+
+create table if not exists AgreementsTitle(
+	id_agree_title int primary key auto_increment,
+    title varchar(200) not null,
+    admin_agree_title int,
+    constraint admagreetitle_fk foreign key (admin_agree_title) references Admin(id_adm)
+);
+
+insert into AgreementsItem(item, agree_title_item) values
+('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui distinctio suscipit, alias laborum at officiis repellat. Nobis velit reprehenderit assumenda earum 1.', 1),
+('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui distinctio suscipit, alias laborum at officiis repellat. Nobis velit reprehenderit assumenda earum 2.', 1),
+('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui distinctio suscipit, alias laborum at officiis repellat. Nobis velit reprehenderit assumenda earum 3.', 1);
+
+create table if not exists AgreementsItem(
+	id_agree_item int primary key auto_increment,
+    item varchar(200) not null,
+    agree_title_item int,
+    constraint agreeitem_fk foreign key (agree_title_item) references AgreementsTitle(id_agree_title)
+);
+
+insert into InformationCategory(categ_inf, admin_inf) values
+('Контакти', 1),
+('Пошук', 1),
+('Угода', 1);
+
 insert into Comments(text_coments, post_comments) values
 ('Text two',3);
 

@@ -175,6 +175,26 @@ app.post("/api/select-post", function (req, res) {
         }
     })
 });
+
+app.post("/api/agreements", function (req, res) {
+    var agreementsSend1 = req.body.agreementsSend1;
+    var agreementsSend2 = req.body.agreementsSend2;
+    var data = {
+        "Data": ""
+    };
+
+    connection.query("select * from AgreementsTitle join AgreementsItem on AgreementsTitle.id_agree_title = AgreementsItem.agree_title_item;", [agreementsSend1, agreementsSend2], function (err, rows) {
+        if (err) throw err;
+        if(rows.length != 0){
+            data["Data"] = rows;
+            res.json(data);
+        }else{
+            data["Data"] = "Error post paginations";
+            res.json(data);
+        }
+    })
+});
+
 app.post("/api/search/select-post", function (req, res) {
     var titlePost = req.body.titlePost;
     var data = {
@@ -192,6 +212,7 @@ app.post("/api/search/select-post", function (req, res) {
         }
     })
 });
+
 app.post("/api/category/post", function (req, res) {
     var category = req.body.category;
     var data = {

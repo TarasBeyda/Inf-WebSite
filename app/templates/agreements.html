@@ -1,0 +1,72 @@
+<header class="head">
+
+    <div class="top">
+        <nav class="navig__menu__left">
+            <ul class="fonts_content">
+                <!--<li><a href="#!/admin_panel">НОВИНИ</a></li>-->
+                <li><a href="#!/news">НОВИНИ</a></li>
+                <!--<li><a href="#!/post">ОГЛЯДИ</a></li>-->
+                <li><a href="#!/reviews">ОГЛЯДИ</a></li>
+                <!--<li><a href="#!/contact">Меню 3</a></li>-->
+            </ul>
+        </nav>
+
+        <h1 ng-click="home();">IНФОТЕХ</h1>
+
+        <nav class="navig__menu__right">
+            <ul class="fonts_content">
+                <li><a href="#!/articles">СТАТТІ</a></li>
+                <li><a href="#!/blogs">БЛОГ</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+
+<div class="small__menu">
+
+    <i class="fa fa-arrow-down fa-2x" aria-hidden="true" id="smallMenuBtn" ng-click="main.showSmallMenu();"></i>
+
+    <nav class="small__menu__nav">
+        <ul>
+            <li><a href="#">НОВИНИ</a></li>
+            <li><a href="#">ОГЛЯД</a></li>
+            <li><a href="#">СТАТТІ</a></li>
+            <li><a href="#">БЛОГ</a></li>
+        </ul>
+    </nav>
+
+    <i class="fa fa-arrow-up fa-2x" aria-hidden="true" id="smallMenuBtnBottom" ng-click="main.hideSmallMenu();"></i>
+
+</div>
+
+<div class="wrapper">
+
+
+
+    <footer class="footer">
+
+        <p>IНФОТЕХ</p>
+        <p class="fonts_content">Найсвіжіші новини в світі інформаційних технологій.
+            <br> Всі права захищені!
+            <br> Дозволяється використовувати матеріали з сайту
+            <br> за умов прямого гіперпосилання на даний сайт</p>
+        <p class="fonts_content"><i class="fa fa-phone" aria-hidden="true"></i>+38 093 692 11 48</p>
+        <p class="fonts_content"><i class="fa fa-envelope" aria-hidden="true"></i>tarasbeyda@gmail.com</p>
+
+        <div class="footer__links">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-vk" aria-hidden="true"></i>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+        </div>
+
+        <div class="demarcation">
+            <h3>
+                <a ng-click="scrollTop();" href="javascript:;"><i class="fa fa-arrow-up fa-2x" aria-hidden="true"></i></a>
+            </h3>
+        </div>
+
+    </footer>
+
+</div>
