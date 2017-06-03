@@ -221,6 +221,17 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
                 }
             );
 
+        PaginationsService.getInfCategory()
+            .then(
+                function (response) {
+                    console.log('inf-categ', response);
+                    vm.infCateg = response.Data;
+                },
+                function (errResponse) {
+                    console.log("Error get inf-category");
+                }
+            );
+
         vm.pageChanged = function(currentPage) {
             $('.opacity-loader').show();
             $("html, body").animate({ scrollTop: 560 }, "slow");
@@ -254,17 +265,35 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
                     function (response) {
                         $('.opacity-loader').hide();
                         vm.agreements = response.Data;
-                        console.log(response.Data);
+                        console.log('response data', response.Data);
 
                         vm.oneTitle = vm.agreements[0].title;
-                        console.log(vm.oneTitle);
 
                         vm.oneTitleItem = [
                             {'one': vm.agreements[0].item},
                             {'two': vm.agreements[1].item},
                             {'three': vm.agreements[2].item}
                         ];
-                        console.log(vm.oneTitleItem);
+
+                        vm.twoTitle = vm.agreements[3].title;
+
+                        vm.twoTitleItem = [
+                            {'one': vm.agreements[3].item},
+                            {'two': vm.agreements[4].item},
+                            {'three': vm.agreements[5].item},
+                            {'four': vm.agreements[6].item},
+                            {'five': vm.agreements[7].item}
+                        ];
+
+                        vm.threeTitle = vm.agreements[8].title;
+
+                        vm.threeTitleItem = [
+                            {'one': vm.agreements[8].item},
+                            {'two': vm.agreements[9].item},
+                            {'three': vm.agreements[10].item},
+                            {'four': vm.agreements[11].item},
+                            {'five': vm.agreements[12].item}
+                        ]
 
                     },
                     function (errResponse) {
@@ -471,6 +500,7 @@ function mainPageCtrl($scope, mainPageFact, $http, $location, PaginationsService
                         vm.searchResult = response.Data;
                         if (vm.searchResult !== "Error comments post") {
                             $('.search__image').hide();
+                            $('.search-result').show();
                         }
                         console.log(vm.searchResult);
                     },

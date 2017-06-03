@@ -14,6 +14,18 @@ app.service("PaginationsService", ["$http", "$q", function ($http, $q) {
                     }
                 )
         },
+        getInfCategory: function () {
+            return $http.get("/api/inf-category")
+                .then(
+                    function (res) {
+                        return res.data;
+                    },
+                    function (errRes) {
+                        console.log("Error inf-category!");
+                        return $q.reject(errRes);
+                    }
+                )
+        },
         postPaginationsChange: function (currentPage) {
             return $http.post("/api/paginations/change", currentPage)
                 .then(

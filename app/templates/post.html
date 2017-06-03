@@ -3,8 +3,8 @@
     <div class="top">
         <nav class="navig__menu__left">
             <ul class="fonts_content">
-                <li><a href="#!/">НОВИНИ</a></li>
-                <li><a href="#!/">ОГЛЯДИ</a></li>
+                <li><a href="#!/news">НОВИНИ</a></li>
+                <li><a href="#!/reviews">ОГЛЯДИ</a></li>
             </ul>
         </nav>
 
@@ -12,8 +12,8 @@
 
         <nav class="navig__menu__right">
             <ul class="fonts_content">
-                <li><a href="#">СТАТТІ</a></li>
-                <li><a href="#">БЛОГ</a></li>
+                <li><a href="#!/articles">СТАТТІ</a></li>
+                <li><a href="#!/blogs">БЛОГ</a></li>
             </ul>
         </nav>
     </div>
@@ -26,15 +26,16 @@
 
     <nav class="small__menu__nav">
         <ul>
-            <li><a href="#">НОВИНИ</a></li>
-            <li><a href="#">ОГЛЯД</a></li>
-            <li><a href="#">СТАТТІ</a></li>
-            <li><a href="#">БЛОГ</a></li>
+            <li><a href="#!/news">НОВИНИ</a></li>
+            <li><a href="#!/reviews">ОГЛЯД</a></li>
+            <li><a href="#!/articles">СТАТТІ</a></li>
+            <li><a href="#!/blogs">БЛОГ</a></li>
         </ul>
     </nav>
 
     <i class="fa fa-arrow-up fa-2x" aria-hidden="true" id="smallMenuBtnBottom" ng-click="main.hideSmallMenu();"></i>
 
+</div>
 </div>
 
 <div class="wrapper">
@@ -42,7 +43,6 @@
     <section class="post">
        
         <a href="">{{activePost.category}}</a>
-        <time class="date fonts_content">August 21 2016</time>
         <h3>{{activePost.title_post}}</h3>
 
         <article class="post__content">
@@ -62,7 +62,6 @@
             <div ng-repeat="key in commentsWithPost">
                 <i class="fa fa-user fa-3x" aria-hidden="true"></i>
                 <p>{{key.text_coments}}</p>
-                <time class="date fonts_content">August 21 2016</time>
             </div>
         </div>
 

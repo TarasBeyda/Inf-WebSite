@@ -102,10 +102,6 @@ app.post('/showAllPosts', (req, res) => {
 });
 
 
-/*Search post in adm panel to edit*/
-
-
-
 /* Paginations */
 app.get('/api/paginations/start', function (req, res) {
     var data = {
@@ -123,6 +119,24 @@ app.get('/api/paginations/start', function (req, res) {
         }
     })
 });
+
+app.get('/api/inf-category', function (req, res) {
+    var data = {
+        "Data": ""
+    };
+
+    connection.query("select categ_inf from InformationCategory", function (err, rows) {
+        if (err) throw err;
+        if (rows.length != 0) {
+            data["Data"] = rows;
+            res.json(data);
+        } else {
+            data["Data"] = "No data found..";
+            res.json(data);
+        }
+    })
+});
+
 app.post("/api/paginations/change", function (req, res) {
     var currentPage = (req.body.currentPage-1)*9;
     var data = {

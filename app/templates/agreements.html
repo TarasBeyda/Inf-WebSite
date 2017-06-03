@@ -3,11 +3,8 @@
     <div class="top">
         <nav class="navig__menu__left">
             <ul class="fonts_content">
-                <!--<li><a href="#!/admin_panel">НОВИНИ</a></li>-->
                 <li><a href="#!/news">НОВИНИ</a></li>
-                <!--<li><a href="#!/post">ОГЛЯДИ</a></li>-->
                 <li><a href="#!/reviews">ОГЛЯДИ</a></li>
-                <!--<li><a href="#!/contact">Меню 3</a></li>-->
             </ul>
         </nav>
 
@@ -29,10 +26,10 @@
 
     <nav class="small__menu__nav">
         <ul>
-            <li><a href="#">НОВИНИ</a></li>
-            <li><a href="#">ОГЛЯД</a></li>
-            <li><a href="#">СТАТТІ</a></li>
-            <li><a href="#">БЛОГ</a></li>
+            <li><a href="#!/news">НОВИНИ</a></li>
+            <li><a href="#!/reviews">ОГЛЯД</a></li>
+            <li><a href="#!/articles">СТАТТІ</a></li>
+            <li><a href="#!/blogs">БЛОГ</a></li>
         </ul>
     </nav>
 
@@ -42,7 +39,48 @@
 
 <div class="wrapper">
 
+    <h2 class="h2_agree">Угода користувача</h2>
 
+    <div class="container container-agree">
+
+        <div class="row">
+
+            <div class="col-xs-12 col-md-10 col-md-offset-1">
+
+                <p>Дана Угода користувача (далі по тексту - Угода) розроблена відповідно до вимог чинного українського законодавства та направлена на регулювання взаємовідносин між Адміністрацією і Користувачами сайту, а також організаціями-провайдерами, визначення їх основних прав і обов'язків, меж відповідальності та підстав звільнення від неї.</p>
+
+                <p>Використання Користувачем сайту, зокрема використання окремих його функцій і інструментів, означає повне і безумовне прийняття умов і положень Угоди без будь-яких застережень.</p>
+
+                <p class="title-agree">1. {{ oneTitle }}</p>
+                <ul>
+                    <li>1.1. {{ oneTitleItem[0].one }}</li>
+                    <li>1.2. {{ oneTitleItem[1].two }}</li>
+                    <li>1.3. {{ oneTitleItem[2].three }}</li>
+                </ul>
+
+                <p class="title-agree">2. {{ twoTitle }}</p>
+                <ul>
+                    <li>2.1.{{ twoTitleItem[0].one }}</li>
+                    <li>{{ twoTitleItem[1].two }}</li>
+                    <li>{{ twoTitleItem[2].three }}</li>
+                    <li>{{ twoTitleItem[3].four }}</li>
+                    <li>{{ twoTitleItem[4].five }}</li>
+                </ul>
+
+                <p class="title-agree">3. {{ threeTitle }}</p>
+                <ul>
+                    <li>3.1. {{ threeTitleItem[0].one }}</li>
+                    <li>3.1.1 {{ threeTitleItem[1].two }}</li>
+                    <li>3.1.2 {{ threeTitleItem[2].three }}</li>
+                    <li>3.1.3 {{ threeTitleItem[3].four }}</li>
+                    <li>3.1.4 {{ threeTitleItem[4].five }}</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <footer class="footer">
 
